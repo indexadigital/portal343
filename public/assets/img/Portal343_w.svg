@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="102.239 211.481 645.576 172.388" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<linearGradient gradientTransform="matrix(1 0 0 1.00166 -42.6995 -169.291)" gradientUnits="userSpaceOnUse" id="LinearGradient" x1="516.385" x2="790.515" y1="466.193" y2="466.193">
+<stop offset="0.00105101" stop-color="#06b406"/>
+<stop offset="1" stop-color="#027d05"/>
+</linearGradient>
+</defs>
+<clipPath id="ArtboardFrame">
+<rect height="172.388" width="645.576" x="102.239" y="211.481"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Layer" vectornator:layerName="Layer">
+<g opacity="1" vectornator:layerName="Agrupar 2">
+<text fill="#ffffff" font-family="BebasNeue-Regular" font-size="160" opacity="1" stroke="none" text-anchor="start" transform="matrix(1 0 0 1 94.1794 211.961)" vectornator:layerName="Texto 2" vectornator:width="390.788" x="0" y="0">
+<tspan textLength="360" x="0" y="144">PORTAL</tspan>
+</text>
+<g opacity="1" vectornator:layerName="Agrupar 1">
+<path d="M473.686 221.498C473.686 215.966 478.163 211.481 483.686 211.481L737.816 211.481C743.338 211.481 747.816 215.966 747.816 221.498L747.816 373.852C747.816 379.384 743.338 383.869 737.816 383.869L483.686 383.869C478.163 383.869 473.686 379.384 473.686 373.852L473.686 221.498Z" fill="url(#LinearGradient)" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Retângulo 1"/>
+<path d="M489.76 232.902C489.76 228.198 493.712 224.385 498.588 224.385L722.914 224.385C727.789 224.385 731.741 228.198 731.741 232.902L731.741 362.448C731.741 367.152 727.789 370.965 722.914 370.965L498.588 370.965C493.712 370.965 489.76 367.152 489.76 362.448L489.76 232.902Z" fill="#06b406" fill-opacity="0.0425347" fill-rule="nonzero" opacity="1" stroke="#ffffff" stroke-linecap="butt" stroke-linejoin="round" stroke-width="6" vectornator:layerName="Retângulo 2"/>
+<text fill="#ffffff" font-family="BebasNeue-Regular" font-size="150" opacity="1" stroke="none" text-anchor="start" transform="matrix(1 0 0 1 518.698 215.933)" vectornator:layerName="Texto 2" vectornator:width="186.105" x="0" y="0">
+<tspan textLength="180" x="0" y="135">343</tspan>
+</text>
+</g>
+</g>
+</g>
+</svg>

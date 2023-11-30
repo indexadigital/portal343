@@ -13,7 +13,7 @@ export default function Index({ allPosts: { edges }, preview }) {
   const morePosts = edges.slice(1)
 
   return (
-    <Layout preview={preview}>
+    <Layout>
       <Head>
         <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
       </Head>
@@ -24,7 +24,6 @@ export default function Index({ allPosts: { edges }, preview }) {
             title={heroPost.title}
             coverImage={heroPost.featuredImage}
             date={heroPost.date}
-            author={heroPost.author}
             slug={heroPost.slug}
             excerpt={heroPost.excerpt}
           />

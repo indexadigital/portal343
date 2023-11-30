@@ -8,7 +8,6 @@ export default function HeroPost({
   coverImage,
   date,
   excerpt,
-  author,
   slug,
 }) {
   return (
@@ -36,7 +35,6 @@ export default function HeroPost({
             className="text-lg leading-relaxed mb-4"
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
-          <Avatar author={author} />
         </div>
       </div>
     </section>

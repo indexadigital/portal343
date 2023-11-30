@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+    style="--bs-dark: #015fd3;--bs-dark-rgb: 1,95,211;--bs-primary: #0f5ebf;--bs-primary-rgb: 15,94,191;--bs-secondary: #444;--bs-secondary-rgb: 68,68,68;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>portal</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/Footer-Dark-Multi-Column-icons.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark py-3">
+            <div class="container justify-content-between header">
+                <div class="block">
+                    <button aria-controls="offcanvasMenu" aria-label="menu offcanvas" class="btn-menu"
+                        data-bs-toggle="offcanvas" href="#offcanvasMenu" name="button" role="button" type="button"><svg
+                            class="icon--hamburger" focusable="false" height="40" preserveAspectRatio="xMidYMid meet"
+                            viewBox="0 0 24 24" width="40">
+                            <g class="style-scope yt-icon">
+                                <path class="style-scope yt-icon" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z">
+                                </path>
+                            </g>
+                        </svg><span hidden="">Menu</span></button>
+                </div>
+                <div class="block d-flex justify-content-center"><a class="navbar-brand d-flex align-items-center m-0"
+                        href="#"><img src="assets/img/343_v2.svg" width="105"></a></div>
+                <div class="block d-none d-lg-flex justify-content-end">
+                    <form action="/" method="get" class="search-form">
+                        <label for="q" class="d-none">
+                            Busca
+                        </label>
+                        <input name="s" id="s" type="text" placeholder="Buscar...">
+                        <button type="submit">
+                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14.9955 11.6795C13.8178 12.8585 12.2495 13.5663 10.586 13.6695C8.9225 13.7727 7.27868 13.2642 5.9642 12.2398L1.44133 16.7613C1.28092 16.9162 1.06609 17.0019 0.843095 17C0.620101 16.998 0.406788 16.9086 0.249102 16.751C0.0914148 16.5933 0.00196962 16.3801 3.18595e-05 16.1572C-0.0019059 15.9342 0.0838181 15.7195 0.238741 15.5591L4.76162 11.0375C3.69145 9.66455 3.1855 7.93516 3.34694 6.20206C3.50838 4.46896 4.32505 2.8627 5.6304 1.71086C6.93576 0.559015 8.63146 -0.0516411 10.3717 0.00342501C12.1119 0.0584911 13.7656 0.775132 14.9955 2.00719C15.631 2.64217 16.1351 3.39609 16.479 4.2259C16.823 5.0557 17 5.94511 17 6.84333C17 7.74155 16.823 8.63097 16.479 9.46077C16.1351 10.2906 15.631 11.0445 14.9955 11.6795ZM13.7929 3.21113C12.9521 2.37063 11.8459 1.84755 10.6626 1.73103C9.47931 1.61451 8.29222 1.91175 7.30358 2.57211C6.31493 3.23247 5.5859 4.21508 5.24069 5.35254C4.89549 6.49 4.95546 7.71194 5.4104 8.81015C5.86533 9.90836 6.68709 10.8149 7.73565 11.3753C8.78422 11.9358 9.99471 12.1154 11.1609 11.8836C12.3271 11.6519 13.3768 11.023 14.1312 10.1043C14.8857 9.18552 15.2981 8.0337 15.2983 6.84503C15.3006 6.16958 15.1687 5.5004 14.9103 4.8763C14.6519 4.2522 14.2721 3.68562 13.7929 3.20943V3.21113Z"
+                                    fill="white"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                <div class="block d-lg-none d-sm-flex justify-content-end">
+                    <button aria-controls="navbarSupportedContent collapseSearch" aria-expanded="false"
+                        aria-label="busca" class="navbar-toggler" data-bs-target=".multi-collapse"
+                        data-bs-toggle="collapse" type="button">
+                        <svg class="bi bi-search" fill="#0147a7" height="25" viewBox="0 0 16 16" width="25"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                                fill="#fff"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="box-topo collapse navbar-collapse justify-content-end multi-collapse busca_mobile"
+                    id="navbarSupportedContent">
+                    <form action="/" class="d-flex form-header" method="get">
+                        <div class="input-group input-group-sm align-items-center">
+                            <input aria-label="Search" class="form-control" name="s" placeholder="Buscar..."
+                                type="search" />
+                            <button class="btn btn-danger bg-transparent border-0" type="submit">
+                                <svg class="" fill="currentColor" height="23" viewBox="0 0 16 16" width="23"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
+                    <div class="offcanvas-header"><img class="pt-4" src="assets/img/343_v2_color.svg"
+                            width="100"><button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button></div>
+                    <div class="offcanvas-body">
+                        <ul class="list-unstyled m-0 menu menu-offcanvas">
+                            <li><a href="#">Últimas</a></li>
+                            <li><a href="#">Política</a></li>
+                            <li><a href="#">Polícia</a></li>
+                            <li><a href="#">Piauí</a></li>
+                            <li><a href="#">Municípios</a></li>
+                            <li><a href="#">Entretenimento</a></li>
+                            <li><a href="#">Esportes</a></li>
+                            <li><a href="#">Eventos</a></li>
+                            <li><a href="#">Geral</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="d-flex justify-content-center align-items-center py-3 submenu">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-12 col-lg-10">
+                        <ul class="list-inline m-0 menu d-none d-lg-flex">
+                            <li class="list-inline-item"><a href="#">Últimas</a></li>
+                            <li class="list-inline-item"><a href="#">Política</a></li>
+                            <li class="list-inline-item"><a href="#">Polícia</a></li>
+                            <li class="list-inline-item"><a href="#">Piauí</a></li>
+                            <li class="list-inline-item"><a href="#">Municípios</a></li>
+                            <li class="list-inline-item"><a href="#">Entretenimento</a></li>
+                            <li class="list-inline-item"><a href="#">Esportes</a></li>
+                            <li class="list-inline-item"><a href="#">Eventos</a></li>
+                            <li class="list-inline-item"><a href="#">Geral</a></li>
+                        </ul>
+                    </div>
+                    <div class="col col-12 col-lg-2">
+                        <ul class="list-unstyled social-bar d-none d-lg-flex justify-content-end align-items-center">
+                            <li><a href="#">
+                                    <div>
+                                        <i>
+                                            <svg width="28" height="28" viewBox="0 0 800 800" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M551.131 438.281L569.108 321.078H456.656V245.02C456.656 212.955 472.363 181.701 522.731 181.701H573.859V81.9192C573.859 81.9192 527.459 74 483.097 74C390.482 74 329.949 130.131 329.949 231.75V321.078H227V438.281H329.949V721.611C371.929 728.181 414.676 728.181 456.656 721.611V438.281H551.131Z"
+                                                    fill="#1877F2" />
+                                            </svg>
+                                        </i>
+                                    </div>
+                                </a></li>
+                            <li><a href="#">
+                                    <div>
+                                        <i>
+                                            <svg width="32" height="32" viewBox="0 0 800 800" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_803_75)">
+                                                    <path
+                                                        d="M522.25 74H277.75C223.712 74 171.888 95.4413 133.677 133.607C95.4665 171.773 74 223.537 74 277.511L74 521.725C74 575.7 95.4665 627.464 133.677 665.629C171.888 703.795 223.712 725.237 277.75 725.237H522.25C576.288 725.237 628.112 703.795 666.323 665.629C704.534 627.464 726 575.7 726 521.725V277.511C726 223.537 704.534 171.773 666.323 133.607C628.112 95.4413 576.288 74 522.25 74V74ZM664.875 521.725C664.875 600.281 600.897 664.183 522.25 664.183H277.75C199.103 664.183 135.125 600.281 135.125 521.725V277.511C135.125 198.956 199.103 135.053 277.75 135.053H522.25C600.897 135.053 664.875 198.956 664.875 277.511V521.725Z"
+                                                        fill="url(#paint0_linear_803_75)" />
+                                                    <path
+                                                        d="M400 236.81C356.77 236.81 315.31 253.963 284.742 284.495C254.173 315.028 237 356.439 237 399.619C237 442.798 254.173 484.21 284.742 514.742C315.31 545.275 356.77 562.428 400 562.428C443.23 562.428 484.69 545.275 515.258 514.742C545.827 484.21 563 442.798 563 399.619C563 356.439 545.827 315.028 515.258 284.495C484.69 253.963 443.23 236.81 400 236.81ZM400 501.374C372.991 501.342 347.097 490.611 327.999 471.535C308.901 452.459 298.157 426.596 298.125 399.619C298.125 343.49 343.846 297.863 400 297.863C456.154 297.863 501.875 343.49 501.875 399.619C501.875 455.706 456.154 501.374 400 501.374Z"
+                                                        fill="url(#paint1_linear_803_75)" />
+                                                    <path
+                                                        d="M575.225 246.293C587.22 246.293 596.945 236.58 596.945 224.599C596.945 212.617 587.22 202.904 575.225 202.904C563.23 202.904 553.505 212.617 553.505 224.599C553.505 236.58 563.23 246.293 575.225 246.293Z"
+                                                        fill="url(#paint2_linear_803_75)" />
+                                                </g>
+                                                <defs>
+                                                    <linearGradient id="paint0_linear_803_75" x1="133.658" y1="665.648"
+                                                        x2="665.718" y2="132.965" gradientUnits="userSpaceOnUse">
+                                                        <stop stop-color="#FFC107" />
+                                                        <stop offset="0.507" stop-color="#F44336" />
+                                                        <stop offset="0.99" stop-color="#9C27B0" />
+                                                    </linearGradient>
+                                                    <linearGradient id="paint1_linear_803_75" x1="284.759" y1="514.725"
+                                                        x2="514.971" y2="284.243" gradientUnits="userSpaceOnUse">
+                                                        <stop stop-color="#FFC107" />
+                                                        <stop offset="0.507" stop-color="#F44336" />
+                                                        <stop offset="0.99" stop-color="#9C27B0" />
+                                                    </linearGradient>
+                                                    <linearGradient id="paint2_linear_803_75" x1="559.862" y1="239.943"
+                                                        x2="590.552" y2="209.218" gradientUnits="userSpaceOnUse">
+                                                        <stop stop-color="#FFC107" />
+                                                        <stop offset="0.507" stop-color="#F44336" />
+                                                        <stop offset="0.99" stop-color="#9C27B0" />
+                                                    </linearGradient>
+                                                    <clipPath id="clip0_803_75">
+                                                        <rect width="652" height="651.237" fill="white"
+                                                            transform="translate(74 74)" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </i>
+                                    </div>
+                                </a></li>
+                            <li><a href="#">
+                                    <div>
+                                        <i>
+                                            <svg fill="none" width="25" height="25" viewBox="0 0 56 52"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M44.1033 0.880859H52.6903L33.9302 22.3225L56 51.4997H38.7195L25.1848 33.8039L9.69805 51.4997H1.10583L21.1716 28.5655L0 0.880859H17.7192L29.9534 17.0555L44.1033 0.880859ZM41.0895 46.3599H45.8477L15.1337 5.75065H10.0277L41.0895 46.3599Z"
+                                                    fill="black"></path>
+                                            </svg>
+                                        </i>
+                                    </div>
+                                </a></li>
+                            <li><a href="#">
+                                    <div>
+                                        <i>
+                                            <svg width="32" height="32" viewBox="0 0 800 800" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M532.196 391.849C459.355 352.922 389.609 317.135 318.315 279.771V503.292C393.338 462.509 472.414 425.159 532.506 391.849H532.196Z"
+                                                    fill="white" />
+                                                <path
+                                                    d="M332.023 678.262C180.724 675.476 129.048 672.97 97.2854 666.426C75.7956 662.078 57.1209 652.424 43.4281 638.422C32.8454 627.824 24.4292 611.655 17.8998 589.222C12.2988 570.532 10.1174 554.983 7.00745 516.999C2.24667 431.276 1.11175 361.191 7.00745 282.881C11.8714 239.636 14.2297 188.299 46.5381 158.349C61.7932 144.332 79.5393 135.312 99.4668 131.583C130.596 125.672 263.22 121 400.516 121C537.503 121 670.421 125.672 701.58 131.583C726.475 136.255 749.822 150.257 763.529 168.313C793.008 214.683 793.523 272.343 796.516 317.445C797.754 338.935 797.754 460.961 796.516 482.451C791.858 553.73 788.114 578.949 777.531 605.096C770.987 621.604 765.401 630.315 755.732 639.969C740.568 654.826 721.236 664.708 700.312 668.298C569.384 678.144 458.205 680.281 332.023 678.262ZM532.521 391.849C459.679 352.922 389.933 316.826 318.639 279.462V502.997C393.662 462.214 472.753 424.85 532.83 391.539L532.521 391.849Z"
+                                                    fill="#ff0000" />
+                                            </svg>
+                                        </i>
+                                    </div>
+                                </a></li>
+                            <li><a href="#">
+                                    <div>
+                                        <i><svg fill="none" height="26" viewBox="0 0 99 99" width="30"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M1.7041 97.1518L8.4151 72.6438C3.21618 63.623 1.13857 53.139 2.50439 42.8173C3.87021 32.4956 8.60316 22.9128 15.9694 15.5547C23.3357 8.19655 32.9237 3.47421 43.2469 2.1198C53.5702 0.765391 64.0519 2.85459 73.0669 8.06348C82.0819 13.2724 89.1267 21.3099 93.1089 30.93C97.091 40.5501 97.7882 51.2152 95.0922 61.2718C92.3963 71.3284 86.4578 80.2147 78.1976 86.5528C69.9373 92.8909 59.8168 96.3268 49.4051 96.3278H49.3841C41.4885 96.3263 33.7189 94.3478 26.7841 90.5728L1.7081 97.1478L1.7041 97.1518Z"
+                                                    fill="url(#paint0_linear_658_232)"></path>
+                                                <path clip-rule="evenodd"
+                                                    d="M37.1654 28.5141C36.2484 26.4751 35.2824 26.4341 34.4104 26.3991C33.6964 26.3681 32.8794 26.3701 32.0644 26.3701C31.444 26.3865 30.8336 26.5311 30.2717 26.7947C29.7098 27.0584 29.2086 27.4354 28.7994 27.9021C27.415 29.2129 26.3189 30.7978 25.581 32.5557C24.843 34.3136 24.4795 36.2059 24.5134 38.1121C24.5134 44.1361 28.9014 49.9571 29.5134 50.7741C30.1254 51.5911 37.9834 64.3471 50.4274 69.2541C60.7694 73.3321 62.8744 72.5211 65.1194 72.3171C67.3644 72.1131 72.3624 69.3561 73.3834 66.4971C74.4044 63.6381 74.4034 61.1881 74.0974 60.6761C73.7914 60.1641 72.9754 59.8601 71.7504 59.2471C70.5254 58.6341 64.5074 55.6721 63.3844 55.2641C62.2614 54.8561 61.4454 54.6521 60.6294 55.8781C59.8134 57.1041 57.4684 59.8591 56.7534 60.6781C56.0384 61.4971 55.3244 61.5981 54.1004 60.9861C50.4911 59.5473 47.1598 57.4913 44.2554 54.9101C41.5786 52.4363 39.2833 49.5792 37.4444 46.4321C36.7304 45.2081 37.3674 44.5441 37.9824 43.9321C38.5324 43.3841 39.2064 42.5031 39.8194 41.7881C40.3218 41.1693 40.7336 40.4821 41.0424 39.7471C41.2055 39.4095 41.2817 39.0365 41.2643 38.662C41.2468 38.2874 41.1362 37.9232 40.9424 37.6021C40.6334 36.9891 38.2534 30.9351 37.1654 28.5141Z"
+                                                    fill="white" fill-rule="evenodd"></path>
+                                                <path
+                                                    d="M84.072 14.3748C75.6714 5.96307 64.4993 0.892229 52.6371 0.107053C40.775 -0.678123 29.032 2.87592 19.596 10.107C10.16 17.3381 3.6746 27.753 1.34821 39.4112C-0.978176 51.0694 1.01309 63.1759 6.951 73.4748L0 98.8618L25.975 92.0508C33.1594 95.9632 41.2094 98.0133 49.39 98.0138H49.411C59.1015 98.0145 68.5746 95.1419 76.6326 89.7591C84.6905 84.3763 90.9716 76.7251 94.6815 67.7729C98.3914 58.8207 99.3635 48.9695 97.4751 39.4648C95.5867 29.9601 90.9224 21.2288 84.072 14.3748ZM49.411 89.7408H49.4C42.1064 89.7415 34.9468 87.781 28.671 84.0648L27.183 83.1828L11.765 87.2238L15.88 72.1958L14.911 70.6558C10.1115 63.0072 7.98979 53.9805 8.87951 44.9948C9.76923 36.009 13.6199 27.5736 19.8261 21.0148C26.0324 14.456 34.2423 10.1456 43.1653 8.76126C52.0883 7.37692 61.2183 8.99712 69.1201 13.3672C77.0219 17.7372 83.2475 24.6093 86.818 32.9031C90.3885 41.1969 91.1016 50.4421 88.8452 59.1853C86.5887 67.9286 81.4907 75.6741 74.3525 81.2042C67.2143 86.7343 58.4407 89.7354 49.411 89.7358V89.7408Z"
+                                                    fill="white"></path>
+                                                <defs>
+                                                    <linearGradient gradientUnits="userSpaceOnUse"
+                                                        id="paint0_linear_658_232" x1="49.2073" x2="49.2073"
+                                                        y1="98.8618" y2="0">
+                                                        <stop stop-color="#20B038"></stop>
+                                                        <stop offset="1" stop-color="#60D66A"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                            </svg></i>
+                                    </div>
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <section>
+        <div class="container">
+            <div class="banner"><img src="assets/img/banner_teste.gif"></div>
+        </div>
+    </section>
+    <section class="pb-5">
+        <div class="container text-center featured-banner"><a class="category" href="#">Política</a>
+            <h2 class="featured-title"><a href="#">Deputado Castro Neto passa por cirurgia de emergência em
+                    Teresina<br></a></h2>
+            <p class="featured-subtitle m-0 mt-3">O deputado deu entrada no hospital, na noite de ontem, após sentir
+                desconforto abdominal e indisposição.</p>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 col-lg-6">
+                    <div class="news"><a class="featured featured-1" href="#"><img src="assets/img/noticia1.jpeg"></a>
+                        <h3 class="featured-1-title"><a href="#">Laura Pigossi conquista o ouro no tênis nos Jogos
+                                Pan-Americanos</a></h3>
+                        <p class="featured-1-subtitle featured-2-subtitle">Este é o segundo ouro da tenista brasileira,
+                            que também faturou medalha nas duplas com Luisa Stefani.</p>
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-6">
+                    <div class="news"><a class="featured featured-2" href="#"><img src="assets/img/noticia2.jpeg"></a>
+                        <h3 class="featured-1-title featured-2-title"><a href="#">Criminoso que fez reféns em assalto no
+                                bairro Bela Vista morre no HUT<br></a></h3>
+                        <p class="featured-1-subtitle featured-2-subtitle">De acordo com a PM-PI, a ação durou cerca de
+                            30 minutos e depois de ameaçar atirar contra a guarnição, os policiais dispararam contra o
+                            homem.</p>
+                    </div>
+                    <div class="news"><a class="featured featured-2" href="#"><img src="assets/img/noticia3.jpeg"></a>
+                        <h3 class="featured-1-title featured-2-title"><a href="#">Sancionada lei que cria semana da
+                                cultura evangélica no Piauí<br></a></h3>
+                        <p class="featured-1-subtitle featured-2-subtitle">De acordo com informações da ALEPI, a
+                            celebração será feita, anualmente, na segunda semana do mês de setembro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="banner"><img src="assets/img/banner2.png" width="976"></div>
+        </div>
+    </section>
+    <section class="sections">
+        <div class="container">
+            <h2 class="featured-1-title featured-2-title blue"><a href="#">Política</a></h2>
+            <div class="row">
+                <div class="col col-12 col-lg-4">
+                    <div class="news"><a class="featured featured-3" href="#"><img src="assets/img/noticia4.jpeg"></a>
+                        <h3 class="featured-1-title featured-3-title"><a href="#">Rafael Fonteles chega à Coreia do Sul
+                                e discute inteligência artificial para o PI</a></h3>
+                        <p class="featured-1-subtitle featured-2-subtitle">O governador desembarcou no país na
+                            quarta-feira (1°) e deve cumprir uma série de agendas.</p>
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-4">
+                    <div class="news"><a class="featured featured-3" href="#"><img src="assets/img/noticia5.jpeg"></a>
+                        <h3 class="featured-1-title featured-3-title"><a href="#">Deputados dos EUA aprovam US$ 14
+                                bilhões em ajuda a Israel</a></h3>
+                        <p class="featured-1-subtitle featured-2-subtitle">Presidente da Câmara, Mike Johnson, disse que
+                            a assistência é crítica, enquanto Israel luta.</p>
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-4">
+                    <div class="news"><a class="featured featured-3" href="#"><img src="assets/img/noticia6.jpeg"></a>
+                        <h3 class="featured-1-title featured-3-title"><a href="#">Polícia Civil prende foragido do
+                                Distrito Federal em Curimatá</a></h3>
+                        <p class="featured-1-subtitle featured-2-subtitle">O homem, que estava foragido na casa dos
+                            pais, foi levado à delegacia onde está à disposição da justiça.</p>
+                    </div>
+                </div>
+            </div><a class="button-featured blue d-flex align-items-center" href="#">VEJA MAIS NOTÍCIAS&nbsp; &nbsp;<svg
+                    xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                        fill="#fff" />
+                </svg></a>
+        </div>
+    </section>
+    <section class="sections">
+        <div class="container">
+            <h2 class="featured-1-title featured-2-title blue"><a href="#">Geral</a></h2>
+            <div class="row">
+                <div class="col col-12 col-lg-4">
+                    <div class="news"><a class="featured featured-3" href="#"><img src="assets/img/noticia4.jpeg"></a>
+                        <h3 class="featured-1-title featured-3-title"><a href="#">Rafael Fonteles chega à Coreia do Sul
+                                e discute inteligência artificial para o PI</a></h3>
+                        <p class="featured-1-subtitle featured-2-subtitle">O governador desembarcou no país na
+                            quarta-feira (1°) e deve cumprir uma série de agendas.</p>
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-4">
+                    <div class="news"><a class="featured featured-3" href="#"><img src="assets/img/noticia5.jpeg"></a>
+                        <h3 class="featured-1-title featured-3-title"><a href="#">Deputados dos EUA aprovam US$ 14
+                                bilhões em ajuda a Israel</a></h3>
+                        <p class="featured-1-subtitle featured-2-subtitle">Presidente da Câmara, Mike Johnson, disse que
+                            a assistência é crítica, enquanto Israel luta.</p>
+                    </div>
+                </div>
+                <div class="col col-12 col-lg-4">
+                    <div class="news"><a class="featured featured-3" href="#"><img src="assets/img/noticia6.jpeg"></a>
+                        <h3 class="featured-1-title featured-3-title"><a href="#">Polícia Civil prende foragido do
+                                Distrito Federal em Curimatá</a></h3>
+                        <p class="featured-1-subtitle featured-2-subtitle">O homem, que estava foragido na casa dos
+                            pais, foi levado à delegacia onde está à disposição da justiça.</p>
+                    </div>
+                </div>
+            </div><a class="button-featured blue d-flex align-items-center" href="#">VEJA MAIS NOTÍCIAS&nbsp; &nbsp;<svg
+                    xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                        fill="#fff" />
+                </svg></a>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="banner"><img src="assets/img/banner3.png" width="976"></div>
+        </div>
+    </section>
+    <section class="sections pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 col-lg-8">
+                    <h2 class="featured-1-title featured-2-title blue"><a href="#">ÚLTIMAS</a></h2>
+                    <div class="news list">
+                        <div class="row">
+                            <div class="col col-12 col-lg-4"><a class="featured featured-4" href="#"><img
+                                        src="assets/img/noticia4.jpeg"></a></div>
+                            <div class="col col-12 col-lg-8"><a class="category" href="#">Política</a>
+                                <h3 class="featured-1-title featured-2-title"><a href="#">Rafael Fonteles chega à Coreia
+                                        do Sul e discute inteligência artificial para o Piauí</a></h3>
+                                <p class="featured-1-subtitle featured-2-subtitle m-0">O governador desembarcou no país
+                                    na quarta-feira (1°) e deve cumprir uma série de agendas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news list">
+                        <div class="row">
+                            <div class="col col-12 col-lg-4"><a class="featured featured-4" href="#"><img
+                                        src="assets/img/noticia5.jpeg"></a></div>
+                            <div class="col col-12 col-lg-8"><a class="category" href="#">Geral</a>
+                                <h3 class="featured-1-title featured-2-title"><a href="#">Deputados dos EUA aprovam US$
+                                        14 bilhões em ajuda a Israel</a></h3>
+                                <p class="featured-1-subtitle featured-2-subtitle m-0">O governador desembarcou no país
+                                    na quarta-feira (1°) e deve cumprir uma série de agendas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news list">
+                        <div class="row">
+                            <div class="col col-12 col-lg-4"><a class="featured featured-4" href="#"><img
+                                        src="assets/img/noticia3.jpeg"></a></div>
+                            <div class="col col-12 col-lg-8"><a class="category" href="#">Política</a>
+                                <h3 class="featured-1-title featured-2-title"><a href="#">Sancionada lei que cria semana
+                                        da cultura evangélica no Piauí</a></h3>
+                                <p class="featured-1-subtitle featured-2-subtitle m-0">O governador desembarcou no país
+                                    na quarta-feira (1°) e deve cumprir uma série de agendas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news list">
+                        <div class="row">
+                            <div class="col col-12 col-lg-4"><a class="featured featured-4" href="#"><img
+                                        src="assets/img/noticia2.jpeg"></a></div>
+                            <div class="col col-12 col-lg-8"><a class="category" href="#">Geral</a>
+                                <h3 class="featured-1-title featured-2-title"><a href="#">Criminoso que fez reféns em
+                                        assalto no bairro Bela Vista morre no HUT</a></h3>
+                                <p class="featured-1-subtitle featured-2-subtitle m-0">O governador desembarcou no país
+                                    na quarta-feira (1°) e deve cumprir uma série de agendas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news list">
+                        <div class="row">
+                            <div class="col col-12 col-lg-4"><a class="featured featured-4" href="#"><img
+                                        src="assets/img/noticia4.jpeg"></a></div>
+                            <div class="col col-12 col-lg-8"><a class="category" href="#">Política</a>
+                                <h3 class="featured-1-title featured-2-title"><a href="#">Rafael Fonteles chega à Coreia
+                                        do Sul e discute inteligência artificial para o Piauí</a></h3>
+                                <p class="featured-1-subtitle featured-2-subtitle m-0">O governador desembarcou no país
+                                    na quarta-feira (1°) e deve cumprir uma série de agendas.</p>
+                            </div>
+                        </div>
+                    </div><a class="button-featured blue d-flex align-items-center normal my-5" href="#">MAIS
+                        NOTÍCIAS&nbsp; &nbsp;<svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                            viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path
+                                d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                                fill="#fff" />
+                        </svg></a>
+                </div>
+                <div class="col col-12 col-lg-4">
+                    <h2 class="featured-1-title featured-2-title blue maislidas d-inline-flex"><a href="#">MAIS
+                            LIDAS</a>
+                        <div class="dropdown d-none"><button class="btn btn-primary dropdown-toggle"
+                                aria-expanded="false" data-bs-toggle="dropdown" type="button">DO DIA </button>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="#">DO DIA</a><a
+                                    class="dropdown-item" href="#">DA SEMANA</a><a class="dropdown-item" href="#">DO
+                                    MÊS</a></div>
+                        </div>
+                    </h2>
+                    <ul class="list-unstyled maislidas">
+                        <li><strong>1</strong><a href="#" title="">Deputados dos EUA aprovam US$ 14 bilhões em ajuda a
+                                Israel</a></li>
+                        <li><strong>2</strong><a href="#" title="">Polícia Civil prende foragido do Distrito Federal em
+                                Curimatá</a></li>
+                        <li><strong>3</strong><a href="#" title="">Criminoso que fez reféns em assalto no bairro Bela
+                                Vista morre no HUT</a></li>
+                        <li><strong>4</strong><a href="#" title="">Laura Pigossi conquista o ouro no tênis nos Jogos
+                                Pan-Americanos</a></li>
+                        <li><strong>5</strong><a href="#" title="">Sancionada lei que cria semana da cultura evangélica
+                                no Piauí</a></li>
+                    </ul>
+                    <div class="banner mb-3"><img src="assets/img/banner_girassol.gif" width=""></div>
+                    <div class="banner mb-3"><img src="assets/img/banner4.png" width="300"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="text-white bg-dark mt-5">
+        <div class="container py-4 py-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-white">PÁGINAS</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="link-light" href="#">Sobre</a></li>
+                        <li><a class="link-light" href="#">Contatos</a></li>
+                        <li><a class="link-light" href="#">Anuncie!</a></li>
+                        <li><a class="link-light" href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-white">MAPA DO SITE</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="link-light" href="#">Últimas</a></li>
+                        <li><a class="link-light" href="#">Política</a></li>
+                        <li><a class="link-light" href="#">Polícia</a></li>
+                        <li><a class="link-light" href="#">Geral</a></li>
+                        <li><a class="link-light" href="#">Municípios</a></li>
+                        <li><a class="link-light" href="#">Esportes</a></li>
+                        <li><a class="link-light" href="#">Eventos</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-white">&nbsp;</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="link-light" href="#">Piauí</a></li>
+                        <li><a class="link-light" href="#">Economia</a></li>
+                        <li><a class="link-light" href="#">Entretenimento</a></li>
+                        <li><a class="link-light" href="#">Cultura</a></li>
+                        <li><a class="link-light" href="#">Teresina</a></li>
+                        <li><a class="link-light" href="#">Parnaíba</a></li>
+                    </ul>
+                </div>
+                <div
+                    class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
+                    <div class="fw-bold d-flex align-items-center mb-3"><img src="assets/img/343_v2.svg" width="155">
+                    </div>
+                    <p>É proibida a reprodução do conteúdo desta página em qualquer meio de comunicação, eletrônico ou
+                        impresso, sem autorização escrita do Portal343.com.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center pt-3">
+                <p class="mb-0">Copyright © 2023&nbsp;<a href="#">Portal343.com</a></p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="#">WhatsApp 86988830013</a></li>
+                    <li class="list-inline-item"><a href="#">redacao@portal343.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
