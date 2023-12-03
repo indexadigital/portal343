@@ -1,53 +1,26 @@
+import axios from 'axios'
 const API_URL = process.env.WORDPRESS_API_URL
 
 async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
-  const headers = { 'Content-Type': 'application/json' }
-
-  if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
-    headers[
-      'Authorization'
-    ] = `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`
-  }
-
-  // WPGraphQL Plugin must be enabled
-  const res = await fetch(API_URL, {
-    headers,
-    method: 'POST',
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  })
-
-  const json = await res.json()
-  if (json.errors) {
-    console.error(json.errors)
-    throw new Error('Failed to fetch API')
-  }
-  return json.data
-}
-
-export async function getPreviewPost(id, idType = 'DATABASE_ID') {
-  const data = await fetchAPI(
-    `
-    query PreviewPost($id: ID!, $idType: PostIdType!) {
-      post(id: $id, idType: $idType) {
-        databaseId
-        slug
-        status
-      }
-    }`,
-    {
-      variables: { id, idType },
-    }
-  )
-  return data.post
+  const options = {
+    baseURL: API_URL,
+    timeout: 600000, // 10 minutos
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "*/*",
+    },
+  };
+  const api = axios.create(options);
+  return (await api.post('/', {
+    query,
+    variables,
+  }))?.data?.data
 }
 
 export async function getAllPostsWithSlug() {
   const data = await fetchAPI(`
     {
-      posts(first: 10000) {
+      posts(first: 500) {
         edges {
           node {
             slug
@@ -58,12 +31,67 @@ export async function getAllPostsWithSlug() {
   `)
   return data?.posts
 }
-
-export async function getAllPostsForHome(preview) {
+export async function getPost(slug : any) {
   const data = await fetchAPI(
     `
-    query AllPosts {
-      posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
+    fragment AuthorFields on User {
+      name
+      firstName
+      lastName
+      avatar {
+        url
+      }
+    }
+    fragment PostFields on Post {
+      title
+      excerpt
+      slug
+      date
+      modified
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+      author {
+        node {
+          ...AuthorFields
+        }
+      }
+      categories {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+      tags {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+    }
+    query GetPost($slug: String) {
+      postBy(
+        slug: $slug
+      ) {
+        ...PostFields
+        content
+      }
+    }`,
+    {
+      variables: { slug },
+    }
+  )
+  return data?.postBy
+}
+export async function getAllPosts(first = 8) {
+  const data = await fetchAPI(
+    `
+    query GetPosts($first: Int) {
+      posts(first: $first, where: { orderby: { field: DATE, order: DESC } }) {
         edges {
           node {
             title
@@ -92,8 +120,7 @@ export async function getAllPostsForHome(preview) {
   `,
     {
       variables: {
-        onlyEnabled: !preview,
-        preview,
+        first: first
       },
     }
   )
@@ -101,112 +128,26 @@ export async function getAllPostsForHome(preview) {
   return data?.posts
 }
 
-export async function getPostAndMorePosts(slug, preview, previewData) {
-  const postPreview = preview && previewData?.post
-  // The slug may be the id of an unpublished post
-  const isId = Number.isInteger(Number(slug))
-  const isSamePost = isId
-    ? Number(slug) === postPreview.id
-    : slug === postPreview.slug
-  const isDraft = isSamePost && postPreview?.status === 'draft'
-  const isRevision = isSamePost && postPreview?.status === 'publish'
+export async function getPage(slug : any) {
   const data = await fetchAPI(
-    `
-    fragment AuthorFields on User {
-      name
-      firstName
-      lastName
-      avatar {
-        url
-      }
-    }
-    fragment PostFields on Post {
-      title
-      excerpt
-      slug
-      date
-      featuredImage {
-        node {
-          sourceUrl
-        }
-      }
-      author {
-        node {
-          ...AuthorFields
-        }
-      }
-      categories {
-        edges {
-          node {
-            name
-          }
-        }
-      }
-      tags {
-        edges {
-          node {
-            name
-          }
-        }
-      }
-    }
-    query PostBySlug($id: ID!, $idType: PostIdType!) {
-      post(id: $id, idType: $idType) {
-        ...PostFields
+    `   
+    query GetPage($slug: String) {
+      pageBy(uri: $slug) {
+        title
+        slug
+        date
         content
-        ${
-          // Only some of the fields of a revision are considered as there are some inconsistencies
-          isRevision
-            ? `
-        revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
-          edges {
-            node {
-              title
-              excerpt
-              content
-              author {
-                node {
-                  ...AuthorFields
-                }
-              }
-            }
-          }
-        }
-        `
-            : ''
-        }
-      }
-      posts(first: 3, where: { orderby: { field: DATE, order: DESC } }) {
-        edges {
+        featuredImage {
           node {
-            ...PostFields
+            sourceUrl
           }
         }
       }
     }
-  `,
+    `,
     {
-      variables: {
-        id: isDraft ? postPreview.id : slug,
-        idType: isDraft ? 'DATABASE_ID' : 'SLUG',
-      },
+      variables: { slug },
     }
   )
-
-  // Draft posts may not have an slug
-  if (isDraft) data.post.slug = postPreview.id
-  // Apply a revision (changes in a published post)
-  if (isRevision && data.post.revisions) {
-    const revision = data.post.revisions.edges[0]?.node
-
-    if (revision) Object.assign(data.post, revision)
-    delete data.post.revisions
-  }
-
-  // Filter out the main post
-  data.posts.edges = data.posts.edges.filter(({ node }) => node.slug !== slug)
-  // If there are still 3 posts, remove the last one
-  if (data.posts.edges.length > 2) data.posts.edges.pop()
-
-  return data
+  return data?.pageBy;
 }
