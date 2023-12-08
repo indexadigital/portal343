@@ -23,6 +23,7 @@ export async function getAllPostsWithSlug() {
       posts(first: 500) {
         edges {
           node {
+            title
             slug
           }
         }
@@ -72,6 +73,10 @@ export async function getPost(slug : any) {
           }
         }
       }
+      extras {
+        subtitulo
+        chapeu
+      }
     }
     query GetPost($slug: String) {
       postBy(
@@ -113,6 +118,10 @@ export async function getAllPosts(first = 8) {
                 }
               }
             }
+            extras {
+              subtitulo
+              chapeu
+            }
           }
         }
       }
@@ -127,7 +136,48 @@ export async function getAllPosts(first = 8) {
 
   return data?.posts
 }
+export async function getDestaques() {
+  const data = await fetchAPI(
+    `
+    fragment PostFields on Post {
+      postId
+      date
+      slug
+      title
+      extras {
+        chapeu
+        subtitulo
+      }
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+      excerpt          
+    }
+    query Destaques {
+      destaques {
+        listaDeDestaques {
+          destaque1 {
+            ...PostFields
+          }
+          destaque2 {
+            ...PostFields
+          }
+          destaque3 {
+            ...PostFields
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {},
+    }
+  )
 
+  return data?.posts
+}
 export async function getPage(slug : any) {
   const data = await fetchAPI(
     `   

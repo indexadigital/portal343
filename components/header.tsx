@@ -14,7 +14,7 @@ export default function Header() {
                                 <path className="style-scope yt-icon" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z">
                                 </path>
                             </g>
-                        </svg><span>Menu</span></Link>
+                        </svg></Link>
                 </div>
                 <div className="block d-flex justify-content-center"><Link className="navbar-brand d-flex align-items-center m-0"
                         href="/"><img src="/assets/img/343_v2.svg" width="105" /></Link></div>
