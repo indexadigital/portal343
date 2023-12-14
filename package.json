@@ -1,9 +1,13 @@
 {
   "private": true,
+  "name": "portal343",
+  "version": "1.0.0",
+  "description": "",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "deploy": "next build && pm2 startOrRestart ecosystem.config.js --env production",
     "lint": "next lint"
   },
   "dependencies": {
