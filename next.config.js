@@ -30,12 +30,9 @@ module.exports = {
   images: {
     remotePatterns: [
       {
-        hostname: process.env.WORDPRESS_API_URL.match(/(?!(w+)\.)\w*(?:\w+\.)+\w+/)[0],
+        protocol: "https",
+        hostname: "**",
       },
-      { hostname: '0.gravatar.com' },
-      { hostname: '1.gravatar.com' },
-      { hostname: '2.gravatar.com' },
-      { hostname: 'secure.gravatar.com' },
     ],
   },
   async headers() {

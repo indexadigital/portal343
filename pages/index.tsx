@@ -1,39 +1,41 @@
+
+import React, { useState } from 'react';
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
-import Container from '../components/container'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
+import Featured from '../components/featured'
 import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
+import { getPostsByCategory, getDestaques } from '../lib/api'
 import { CMS_TITLE } from '../lib/constants'
+import Banner from '../components/banner';
+import SectionNews from '../components/section-news';
 
-export default function Index({ allPosts: { edges }}) {
-  const heroPost = edges[0]?.node
+
+
+export default function Index({ featured, postsPolitica, postsGeral }) {
 
   return (
     <Layout>
       <Head>
         <title>{`${CMS_TITLE}`}</title>
       </Head>
-      <Container>
-        <Intro />
-        {heroPost && (
-          <HeroPost
-            title={heroPost.title}
-            coverImage={heroPost.featuredImage}
-            date={heroPost.date}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-          />
-        )}
-      </Container>
+      <Banner content={`<img src="/assets/img/banner_teste.gif" />`} />
+      <Featured 
+        posts={featured?.listaDeDestaques}
+      />
+      <Banner content={`<img src="/assets/img/banner2.png" width="976" />`} />
+      <SectionNews posts={postsPolitica} title="Política" slug="politica" />
+      <SectionNews posts={postsGeral} title="Geral" slug="geral" />
     </Layout>
   )
 }
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const allPosts = await getAllPosts()
+
+  const featured      = await getDestaques()
+  const featured_ids  = [featured?.listaDeDestaques?.destaque1?.databaseId, featured?.listaDeDestaques?.destaque2?.databaseId, featured?.listaDeDestaques?.destaque3?.databaseId, featured?.listaDeDestaques?.destaque4?.databaseId]
+  const postsPolitica = await getPostsByCategory('politica', 3, featured_ids)
+  const postsGeral    = await getPostsByCategory('geral', 3, featured_ids)
 
   return {
-    props: { allPosts }
+    props: { featured, postsPolitica, postsGeral }
   }
 }

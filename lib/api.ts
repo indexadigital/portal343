@@ -4,17 +4,19 @@ const API_URL = process.env.WORDPRESS_API_URL
 async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
   const options = {
     baseURL: API_URL,
-    timeout: 600000, // 10 minutos
+    timeout: 60000, // 1 minuto
     headers: {
       "Content-Type": "application/json",
       Accept: "*/*",
     },
   };
   const api = axios.create(options);
-  return (await api.post('/', {
+  const result = await api.post('/', {
     query,
     variables,
-  }))?.data?.data
+  });
+  console.log(result);
+  return result?.data ? result?.data?.data : null
 }
 
 export async function getAllPostsWithSlug() {
@@ -136,47 +138,83 @@ export async function getAllPosts(first = 8) {
 
   return data?.posts
 }
-export async function getDestaques() {
+export async function getPostsByCategory( categoryName = "", first = 3, notIn = []) {
+
+  const notInJoined = notIn.join(',')
+
   const data = await fetchAPI(
     `
-    fragment PostFields on Post {
-      postId
-      date
-      slug
-      title
-      extras {
-        chapeu
-        subtitulo
-      }
-      featuredImage {
-        node {
-          sourceUrl
+    query getPostsByCategory {
+      posts(
+        where: {categoryName: "${categoryName}", notIn: "${notInJoined}", orderby: {field: DATE, order: DESC}}
+        first: ${first}
+      ) {
+        edges {
+          node {
+            databaseId
+            title
+            slug
+            extras {
+              chapeu
+              subtitulo
+            }
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+            excerpt
+            categories {
+              nodes {
+                name
+                slug
+              }
+            }
+          }
         }
       }
-      excerpt          
     }
-    query Destaques {
-      destaques {
-        listaDeDestaques {
-          destaque1 {
-            ...PostFields
-          }
-          destaque2 {
-            ...PostFields
-          }
-          destaque3 {
-            ...PostFields
-          }
-        }
-      }
-    }
-  `,
-    {
-      variables: {},
-    }
+    `
   )
 
   return data?.posts
+}
+export async function getDestaques() {
+
+  let query = `query getDestaques {
+                destaques {
+                  listaDeDestaques {`
+                   
+  for(let i = 1; i < 5; i++){
+    query += `    
+          destaque${i} {
+            ... on Post {
+              databaseId
+              title
+              slug
+              extras {
+                chapeu
+                subtitulo
+              }
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+              excerpt
+              categories {
+                nodes {
+                  name
+                  slug
+                }
+              }
+            }
+          },          
+        `
+  }
+  query += `}}}`
+  const data = await fetchAPI(query)
+  return data?.destaques
 }
 export async function getPage(slug : any) {
   const data = await fetchAPI(

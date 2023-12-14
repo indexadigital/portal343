@@ -1,4 +1,13 @@
-body {
+  html {
+    --bs-dark: #015fd3 !important;
+    --bs-dark-rgb: 1,95,211 !important;
+    --bs-primary: #0f5ebf !important;
+    --bs-primary-rgb: 15,94,191 !important;
+    --bs-secondary: #444 !important;
+    --bs-secondary-rgb: 68,68,68 !important;
+  }
+  
+  body {
     font-family: 'Lato', sans-serif !important;
   }
   
@@ -41,7 +50,7 @@ body {
   .menu-offcanvas li {
     margin-bottom: 15px;
   }
-  
+  .space {padding: 0 12px;}
   .sections {
     margin-bottom: 30px;
     display: table;

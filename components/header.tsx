@@ -1,5 +1,6 @@
 import Link from 'next/link'
-
+import Menu from './menu'
+import { MENU } from '../lib/constants'
 export default function Header() {
   return (
     <header>
@@ -69,15 +70,15 @@ export default function Header() {
                             aria-label="Close"></button></div>
                     <div className="offcanvas-body">
                         <ul className="list-unstyled m-0 menu menu-offcanvas">
-                            <li><a href="#">Últimas</a></li>
-                            <li><a href="#">Política</a></li>
-                            <li><a href="#">Polícia</a></li>
-                            <li><a href="#">Piauí</a></li>
-                            <li><a href="#">Municípios</a></li>
-                            <li><a href="#">Entretenimento</a></li>
-                            <li><a href="#">Esportes</a></li>
-                            <li><a href="#">Eventos</a></li>
-                            <li><a href="#">Geral</a></li>
+                            <li><Link href="#">Últimas</Link></li>
+                            <li><Link href="#">Política</Link></li>
+                            <li><Link href="#">Polícia</Link></li>
+                            <li><Link href="#">Piauí</Link></li>
+                            <li><Link href="#">Municípios</Link></li>
+                            <li><Link href="#">Entretenimento</Link></li>
+                            <li><Link href="#">Esportes</Link></li>
+                            <li><Link href="#">Eventos</Link></li>
+                            <li><Link href="#">Geral</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -86,22 +87,12 @@ export default function Header() {
         <section className="d-flex justify-content-center align-items-center py-3 submenu">
             <div className="container">
                 <div className="row">
-                    <div className="col col-12 col-lg-10">
-                        <ul className="list-inline m-0 menu d-none d-lg-flex">
-                            <li className="list-inline-item"><a href="#">Últimas</a></li>
-                            <li className="list-inline-item"><a href="#">Política</a></li>
-                            <li className="list-inline-item"><a href="#">Polícia</a></li>
-                            <li className="list-inline-item"><a href="#">Piauí</a></li>
-                            <li className="list-inline-item"><a href="#">Municípios</a></li>
-                            <li className="list-inline-item"><a href="#">Entretenimento</a></li>
-                            <li className="list-inline-item"><a href="#">Esportes</a></li>
-                            <li className="list-inline-item"><a href="#">Eventos</a></li>
-                            <li className="list-inline-item"><a href="#">Geral</a></li>
-                        </ul>
+                    <div className="col col-12 col-lg-10">                        
+                        <Menu menu={MENU} classLi="list-inline-item" />
                     </div>
                     <div className="col col-12 col-lg-2">
                         <ul className="list-unstyled social-bar d-none d-lg-flex justify-content-end align-items-center">
-                            <li><a href="#">
+                            <li><Link href="#">
                                     <div>
                                         <i>
                                             <svg width="28" height="28" viewBox="0 0 800 800" fill="none"
@@ -112,8 +103,8 @@ export default function Header() {
                                             </svg>
                                         </i>
                                     </div>
-                                </a></li>
-                            <li><a href="#">
+                                </Link></li>
+                            <li><Link href="#">
                                     <div>
                                         <i>
                                             <svg width="32" height="32" viewBox="0 0 800 800" fill="none"
@@ -156,8 +147,8 @@ export default function Header() {
                                             </svg>
                                         </i>
                                     </div>
-                                </a></li>
-                            <li><a href="#">
+                                </Link></li>
+                            <li><Link href="#">
                                     <div>
                                         <i>
                                             <svg fill="none" width="25" height="25" viewBox="0 0 56 52"
@@ -168,8 +159,8 @@ export default function Header() {
                                             </svg>
                                         </i>
                                     </div>
-                                </a></li>
-                            <li><a href="#">
+                                </Link></li>
+                            <li><Link href="#">
                                     <div>
                                         <i>
                                             <svg width="32" height="32" viewBox="0 0 800 800" fill="none"
@@ -183,8 +174,8 @@ export default function Header() {
                                             </svg>
                                         </i>
                                     </div>
-                                </a></li>
-                            <li><a href="#">
+                                </Link></li>
+                            <li><Link href="#">
                                     <div>
                                         <i><svg fill="none" height="26" viewBox="0 0 99 99" width="30"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -207,7 +198,7 @@ export default function Header() {
                                                 </defs>
                                             </svg></i>
                                     </div>
-                                </a></li>
+                                </Link></li>
                         </ul>
                     </div>
                 </div>

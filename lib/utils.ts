@@ -1,0 +1,12 @@
+export function category(post : any) {
+    return post?.categories ? post?.categories?.nodes[0] : ''
+}
+export function permalink(post : any) {
+    return '/' + category(post).slug + '/' + post.slug
+}
+export function subtitle(post : any) {
+    return post?.extras?.subtitulo ? post?.extras?.subtitulo : ''
+}
+export function image(post : any) {
+    return post?.featuredImage?.node?.sourceUrl ? post?.featuredImage?.node?.sourceUrl : ''
+}
