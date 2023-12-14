@@ -15,7 +15,6 @@ async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
     query,
     variables,
   });
-  console.log(result);
   return result?.data ? result?.data?.data : null
 }
 
