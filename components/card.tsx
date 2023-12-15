@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { subtitle, permalink, image } from "../lib/utils";
+import { subtitle, permalink, imageFeatured } from "../lib/utils";
 
 export default function Card( { post, classImg = 'featured-1', classTitle = '' }) {
 
     return (
         <div className="news">
             <Link className={ 'featured ' + classImg } href={ permalink(post) } title={ post.title }>
-                <img src={ image(post) } alt={ post.title }  />
+                <img src={imageFeatured(post, classImg)} alt={ post.title }  />
             </Link>
             <h3 className={ 'featured-1-title ' + classTitle }>
                 <Link href={ permalink(post) } title={ post.title }>{ post.title }</Link>

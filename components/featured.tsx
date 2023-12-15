@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { useEffect } from "react"
 import { permalink, category, subtitle } from "../lib/utils";
 import Card from "./card";
 

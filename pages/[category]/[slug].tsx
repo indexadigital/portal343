@@ -2,20 +2,20 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
-import Container from '../../components/container'
 import PostBody from '../../components/post-body'
-import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
-import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
-import PostTitle from '../../components/post-title'
-import Tags from '../../components/tags'
+
 import { getAllPosts, getPost } from '../../lib/api'
 import { CMS_NAME } from '../../lib/constants'
+import Banner from '../../components/banner'
+import Date from "../../components/date"
+import Link from 'next/link'
+import CardList from '../../components/card-list'
+import Card from '../../components/card'
 
-export default function Post({ post, posts }) {
+export default function Post({ post, posts, ultimas }) {
   const router = useRouter()
-  const morePosts = posts?.edges
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -23,40 +23,62 @@ export default function Post({ post, posts }) {
 
   return (
     <Layout>
-      <Container>
-        <Header />
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article>
-              <Head>
-                <title>
-                  {`${post.title} | Next.js Blog Example with ${CMS_NAME}`}
-                </title>
-                <meta
-                  property="og:image"
-                  content={post.featuredImage?.node.sourceUrl}
-                />
-              </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.featuredImage}
-                date={post.date}
-                author={post.author}
-                categories={post.categories}
-              />
-              <PostBody content={post.content} />
-              <footer>
-                {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
-              </footer>
-            </article>
+        <Head>
+            <title>
+                { `${post?.title} | ${CMS_NAME}` }
+            </title>
+        </Head>
+        <Banner content={`<img src="/assets/img/banner_teste.gif" />`} />
+        <section>
+          <div className="container">
+              
+              <PostHeader post={post} />
 
-            <SectionSeparator />
-            
-          </>
-        )}
-      </Container>
+              <div className="row">
+                <div className="col col-12 col-lg-8">
+                    <article>
+
+                      <PostBody content={post.content} />
+
+                      <div className="sections mt-5">
+                          <h2 className="featured-1-title featured-2-title blue"><a href="#">VEJA TAMBÉM</a></h2>
+                          
+                          { posts?.edges?.map((post: any, index: number) => (
+                            <CardList post={post?.node} classImg="featured-4" />
+                          ))}                          
+                          
+                          <Link className="button-featured blue d-flex align-items-center normal" href="/ultimas">
+                            MAIS
+                            NOTÍCIAS<span className='mx-1' />
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                viewBox="0 0 384 512">
+                                <path
+                                  d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                                  fill="#fff" />
+                            </svg>
+                          </Link>
+                      </div>
+                    </article>
+                </div>
+                <div className="col col-12 col-lg-4 px-5">
+                    <div className="mb-3 mt-0">
+                      <Banner content={`<img src="/assets/img/banner_girassol.gif" />`} />
+                    </div>
+                    <div className="mb-3">
+                      <Banner content={`<img src="/assets/img/banner4.png" width="300" />`} />
+                    </div>
+                    <div className="sections px-3 pt-4">
+                      <h2 className="featured-1-title featured-2-title blue"><Link href="/ultimas" title="Últimas">ÚLTIMAS</Link></h2>
+                      { ultimas?.edges?.map((post: any, index: number) => (
+                        <div className="mb-3">
+                          <Card post={post?.node} classImg="featured-4" classTitle='featured-3-title' />
+                        </div>
+                      ))}                                          
+                    </div>
+                </div>
+              </div>
+          </div>
+        </section>
     </Layout>
   )
 }
@@ -64,8 +86,12 @@ export default function Post({ post, posts }) {
 export const getServerSideProps: GetServerSideProps = async ({
   params
 }) => {
+
   const post = await getPost( params?.slug )
-  const posts = await getAllPosts( 5 )
+  const ultimas = await getAllPosts( 5, [post?.databaseId])
+  const ultimasIds = ultimas?.edges && ultimas?.edges.map((post: any) => post?.node?.databaseId || null) || [];
+  ultimasIds.push(post?.databaseId)
+  const posts = await getAllPosts( 3, ultimasIds)  
 
   if (!post) {
       return {
@@ -77,7 +103,8 @@ export const getServerSideProps: GetServerSideProps = async ({
   return {
       props: { 
           post, 
-          posts
+          posts,
+          ultimas
       }
   }
 }

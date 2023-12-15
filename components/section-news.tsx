@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Card from "./card";
-import { useEffect } from "react";
 
 export default function SectionNews({posts, title, slug}) {
    
@@ -14,7 +13,7 @@ export default function SectionNews({posts, title, slug}) {
                         <Card post={post?.node} classImg="featured-3" classTitle="featured-3-title" />
                     </div>
                     ))}  
-                </div><Link className="button-featured blue d-flex align-items-center" href={ '/' + slug }>VEJA MAIS NOTÍCIAS<span className="space" /><svg
+                </div><Link className="button-featured blue d-flex align-items-center" href={ '/' + slug }>VEJA MAIS <span className="mx-1" /><svg
                         xmlns="http://www.w3.org/2000/svg" height="1em"
                         viewBox="0 0 448 512">
                         <path

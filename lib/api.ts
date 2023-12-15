@@ -15,6 +15,7 @@ async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
     query,
     variables,
   });
+  
   return result?.data ? result?.data?.data : null
 }
 
@@ -45,6 +46,7 @@ export async function getPost(slug : any) {
       }
     }
     fragment PostFields on Post {
+      databaseId
       title
       excerpt
       slug
@@ -61,17 +63,15 @@ export async function getPost(slug : any) {
         }
       }
       categories {
-        edges {
-          node {
-            name
-          }
+        nodes {
+          name
+          slug
         }
       }
       tags {
-        edges {
-          node {
-            name
-          }
+        nodes {
+          name
+          slug
         }
       }
       extras {
@@ -93,59 +93,15 @@ export async function getPost(slug : any) {
   )
   return data?.postBy
 }
-export async function getAllPosts(first = 8) {
-  const data = await fetchAPI(
-    `
-    query GetPosts($first: Int) {
-      posts(first: $first, where: { orderby: { field: DATE, order: DESC } }) {
-        edges {
-          node {
-            title
-            excerpt
-            slug
-            date
-            featuredImage {
-              node {
-                sourceUrl
-              }
-            }
-            author {
-              node {
-                name
-                firstName
-                lastName
-                avatar {
-                  url
-                }
-              }
-            }
-            extras {
-              subtitulo
-              chapeu
-            }
-          }
-        }
-      }
-    }
-  `,
-    {
-      variables: {
-        first: first
-      },
-    }
-  )
-
-  return data?.posts
-}
-export async function getPostsByCategory( categoryName = "", first = 3, notIn = []) {
+export async function getAllPosts(first, notIn = []) {
 
   const notInJoined = notIn.join(',')
-
+  
   const data = await fetchAPI(
     `
-    query getPostsByCategory {
+    query GetPosts {
       posts(
-        where: {categoryName: "${categoryName}", notIn: "${notInJoined}", orderby: {field: DATE, order: DESC}}
+        where: {notIn: [${notInJoined}], orderby: {field: DATE, order: DESC}}
         first: ${first}
       ) {
         edges {
@@ -160,6 +116,59 @@ export async function getPostsByCategory( categoryName = "", first = 3, notIn = 
             featuredImage {
               node {
                 sourceUrl
+                mediaDetails {
+                  sizes(include: FEATURED_4) {
+                    name
+                    sourceUrl
+                  }
+                }
+              }
+            }
+            excerpt
+            categories {
+              nodes {
+                name
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  `
+  )
+
+  return data?.posts
+}
+export async function getPostsByCategory( categoryName = "", first = 3, notIn = []) {
+
+  const notInJoined = notIn.join(',')
+
+  const data = await fetchAPI(
+    `
+    query getPostsByCategory {
+      posts(
+        where: {categoryName: "${categoryName}", notIn: [${notInJoined}], orderby: {field: DATE, order: DESC}}
+        first: ${first}
+      ) {
+        edges {
+          node {
+            databaseId
+            title
+            slug
+            extras {
+              chapeu
+              subtitulo
+            }
+            featuredImage {
+              node {
+                sourceUrl
+                mediaDetails {
+                  sizes(include: FEATURED_3) {
+                    name
+                    sourceUrl
+                  }
+                }
               }
             }
             excerpt
@@ -198,6 +207,12 @@ export async function getDestaques() {
               featuredImage {
                 node {
                   sourceUrl
+                  mediaDetails {
+                    sizes(include: [FEATURED_1, FEATURED_2]) {
+                      name
+                      sourceUrl
+                    }
+                  }
                 }
               }
               excerpt
