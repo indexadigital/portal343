@@ -9,7 +9,7 @@ export default function Featured( { posts } ) {
             <section className="pb-5">
                 { posts?.destaque1 ? (
                     <div className="container text-center featured-banner">
-                        <Link className="category" href={ category(posts?.destaque1).slug }>{ category(posts?.destaque1).name }</Link>
+                        <Link className="category" href={ '/' + category(posts?.destaque1).slug }>{ category(posts?.destaque1).name }</Link>
                         <h2 className="featured-title">
                             <Link href={ permalink(posts?.destaque1) } title={posts?.destaque1?.title}>{posts?.destaque1?.title}</Link>
                         </h2>

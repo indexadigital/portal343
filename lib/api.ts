@@ -230,6 +230,21 @@ export async function getDestaques() {
   const data = await fetchAPI(query)
   return data?.destaques
 }
+export async function getCategory(slug : any) {
+  const data = await fetchAPI(
+    `   
+    query getCategory {
+      category(id: "${slug}", idType: SLUG) {
+        name
+        slug
+        categoryId
+      }
+    }
+    `
+  )
+  return data?.category;
+}
+
 export async function getPage(slug : any) {
   const data = await fetchAPI(
     `   

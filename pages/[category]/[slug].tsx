@@ -9,7 +9,6 @@ import Layout from '../../components/layout'
 import { getAllPosts, getPost } from '../../lib/api'
 import { CMS_NAME } from '../../lib/constants'
 import Banner from '../../components/banner'
-import Date from "../../components/date"
 import Link from 'next/link'
 import CardList from '../../components/card-list'
 import Card from '../../components/card'

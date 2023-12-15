@@ -8,7 +8,7 @@ export default function PostHeader({
     <>
       <section className="pb-4">
         <div className="container text-center">
-            <Link className="category" href={ category(post).slug }>{ category(post).name }</Link>
+            <Link className="category" href={ '/' + category(post).slug }>{ category(post).name }</Link>
             <h1 className="featured-title featured-4-title">
                 <Link href={ permalink(post) } title={post?.title}>{post?.title}</Link>
             </h1>
