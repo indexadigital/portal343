@@ -6,7 +6,13 @@
     --bs-secondary: #444 !important;
     --bs-secondary-rgb: 68,68,68 !important;
   }
-  
+  .offcanvas-header {
+    background:var(--bs-dark);
+  }
+  #nprogress .bar {
+      background: #ffbf10 !important;
+      height: 3px !important;
+  }
   body {
     font-family: 'Lato', sans-serif !important;
   }
@@ -17,7 +23,7 @@
   }
   
   header {
-    padding-top: 105px;
+    padding-top: 92px;
   }
   
   .navbar-dark {
@@ -233,6 +239,40 @@
   .news {
     overflow: hidden;
   }
+
+  .skeleton {
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+    animation-name: skeleton-loading;
+    animation-timing-function: cubic-bezier(0.250, 0.100, 0.250, 1.000);
+    height: auto;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .skeleton.img {
+    border-radius: 8px;
+  }
+
+  @keyframes skeleton-loading{
+    0%{
+        background:linear-gradient(90deg, #f5f6f7 0%, #cfd4dd 0%, #f5f6f7 100%);
+    }
+    20%{
+        background:linear-gradient(90deg, #f5f6f7 0%, #cfd4dd 20%, #f5f6f7 100%);
+    }
+    40%{
+        background:linear-gradient(90deg, #f5f6f7 0%, #cfd4dd 40%, #f5f6f7 100%);
+    }
+    60%{
+        background:linear-gradient(90deg, #f5f6f7 0%, #cfd4dd 60%, #f5f6f7 100%);
+    }
+    80%{
+        background:linear-gradient(90deg, #f5f6f7 0%, #cfd4dd 80%, #f5f6f7 100%);
+    }
+    to{
+        background:linear-gradient(90deg, #f5f6f7 0%, #cfd4dd 100%, #f5f6f7 100%);
+    }
+  }
   
   .news.list {
     border-bottom: 1px solid #ddd;
@@ -245,10 +285,19 @@
     border-radius: 10px;
     display: block;
     margin-bottom: 20px;
+    cursor: pointer;
   }
   
   .featured img {
     width: auto;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  .featured:hover img {
+      -moz-transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
   }
   
   .featured-1 {

@@ -1,16 +1,23 @@
 import { GetServerSideProps } from "next"
 import Layout from "../../components/layout"
 import Head from 'next/head'
-import Footer from "../../components/footer"
 import Banner from "../../components/banner"
 import { CMS_NAME } from "../../lib/constants"
-import { getCategory, getPostsByCategory } from "../../lib/api"
+import { getAllPosts, getCategory, getPostsByCategory } from "../../lib/api"
 import Link from "next/link"
 import Card from "../../components/card"
+import CardSkeleton from "../../components/card-skeleton"
+import React, { useEffect, useState } from "react"
+import PostCardList from "../../components/post-card-list"
 
 export default function Index ( { posts, category } ) {
 
-    console.log(posts);
+    const [skeleton, setSkeleton] = useState(true);
+
+    useEffect( () => {
+        setSkeleton(false);
+    }, []);
+
     return (
         <Layout>
             <Head>
@@ -27,11 +34,7 @@ export default function Index ( { posts, category } ) {
                         </h2>
                     </section>
                     <div className="row">
-                        { posts?.edges?.map((post: any, index: number) => (
-                            <div className="col col-12 col-lg-4 mb-4">
-                                <Card post={post.node} classImg="featured-3" classTitle="featured-3-title" />
-                            </div>
-                        ))}    
+                        <PostCardList posts={posts} />  
                     </div>
                 </div>
             </section>
@@ -41,9 +44,26 @@ export default function Index ( { posts, category } ) {
 }
 export const getServerSideProps: GetServerSideProps = async ( { params } : any ) => {
 
-
-    const posts = await getPostsByCategory(params?.category, 8, [])
-    const category = await getCategory(params?.category)
+    const otherCategories = [
+        {   
+            name: 'Últimas',
+            slug: 'ultimas'
+        },
+        {
+            name: 'Todas',
+            slug: 'todas'
+        },
+        {
+            name: 'Últimas notícias',
+            slug: 'noticias'
+        }
+    ]
+    let checkCategory = false;
+    otherCategories.forEach( (item: any) => {
+        if( item.slug === params.category ) checkCategory = item;
+    })   
+    const posts = (checkCategory) ? await getAllPosts(6, []) : await getPostsByCategory(params?.category, 6, [])
+    const category = (checkCategory) ? checkCategory : await getCategory(params?.category)
     return {
         props: {
             posts : posts,

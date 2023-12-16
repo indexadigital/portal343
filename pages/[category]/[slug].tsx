@@ -13,7 +13,7 @@ import Link from 'next/link'
 import CardList from '../../components/card-list'
 import Card from '../../components/card'
 
-export default function Post({ post, posts, ultimas }) {
+export default function CategorySlug({ post, posts, ultimas }) {
   const router = useRouter()
 
   if (!router.isFallback && !post?.slug) {
@@ -46,7 +46,7 @@ export default function Post({ post, posts, ultimas }) {
                             <CardList post={post?.node} classImg="featured-4" />
                           ))}                          
                           
-                          <Link className="button-featured blue d-flex align-items-center normal" href="/ultimas">
+                          <Link className="button-featured blue d-flex align-items-center normal" href="/noticias">
                             MAIS
                             NOTÍCIAS<span className='mx-1' />
                             <svg xmlns="http://www.w3.org/2000/svg" height="1em"
@@ -67,7 +67,7 @@ export default function Post({ post, posts, ultimas }) {
                       <Banner content={`<img src="/assets/img/banner4.png" width="300" />`} />
                     </div>
                     <div className="sections px-3 pt-4">
-                      <h2 className="featured-1-title featured-2-title blue"><Link href="/ultimas" title="Últimas">ÚLTIMAS</Link></h2>
+                      <h2 className="featured-1-title featured-2-title blue"><Link href="/noticias" title="Últimas">ÚLTIMAS</Link></h2>
                       { ultimas?.edges?.map((post: any, index: number) => (
                         <div className="mb-3">
                           <Card post={post?.node} classImg="featured-4" classTitle='featured-3-title' />

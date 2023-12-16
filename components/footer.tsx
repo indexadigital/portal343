@@ -1,5 +1,4 @@
-import Container from './container'
-import { EXAMPLE_PATH } from '../lib/constants'
+import { CMS_LOGO, CMS_TITLE } from "../lib/constants";
 
 export default function Footer() {
   return (
@@ -40,7 +39,7 @@ export default function Footer() {
                 </div>
                 <div
                     className="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
-                    <div className="fw-bold d-flex align-items-center mb-3"><img src="/assets/img/343_v2.svg" width="155" />
+                    <div className="fw-bold d-flex align-items-center mb-3"><img src={`/assets/img/${CMS_LOGO}`} alt={CMS_TITLE} width="155" />
                     </div>
                     <p>É proibida a reprodução do conteúdo desta página em qualquer meio de comunicação, eletrônico ou
                         impresso, sem autorização escrita do Portal343.com.</p>

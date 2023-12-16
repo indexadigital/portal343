@@ -4,6 +4,7 @@ import { subtitle, permalink, imageFeatured } from "../lib/utils";
 export default function Card( { post, classImg = 'featured-1', classTitle = '' }) {
 
     return (
+
         <div className="news">
             <Link className={ 'featured ' + classImg } href={ permalink(post) } title={ post.title }>
                 <img src={imageFeatured(post, classImg)} alt={ post.title }  />

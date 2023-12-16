@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Menu from './menu'
-import { MENU } from '../lib/constants'
+import { CMS_LOGO, CMS_TITLE, MENU } from '../lib/constants'
 export default function Header() {
   return (
     <header>
@@ -18,7 +18,7 @@ export default function Header() {
                         </svg></Link>
                 </div>
                 <div className="block d-flex justify-content-center"><Link className="navbar-brand d-flex align-items-center m-0"
-                        href="/"><img src="/assets/img/343_v2.svg" width="105" /></Link></div>
+                        href="/"><img src={`/assets/img/${CMS_LOGO}`} alt={CMS_TITLE} width="105" /></Link></div>
                 <div className="block d-none d-lg-flex justify-content-end">
                     <form action="/" method="get" className="search-form">
                         <label htmlFor="q" className="d-none">
@@ -65,21 +65,11 @@ export default function Header() {
                     </form>
                 </div>
                 <div className="offcanvas offcanvas-start" id="offcanvasMenu">
-                    <div className="offcanvas-header"><img className="pt-4" src="/assets/img/343_v2_color.svg"
+                    <div className="offcanvas-header"><img className="pt-4" src={`/assets/img/${CMS_LOGO}`} alt={CMS_TITLE}
                             width="100" /><button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button></div>
                     <div className="offcanvas-body">
-                        <ul className="list-unstyled m-0 menu menu-offcanvas">
-                            <li><Link href="#">Últimas</Link></li>
-                            <li><Link href="#">Política</Link></li>
-                            <li><Link href="#">Polícia</Link></li>
-                            <li><Link href="#">Piauí</Link></li>
-                            <li><Link href="#">Municípios</Link></li>
-                            <li><Link href="#">Entretenimento</Link></li>
-                            <li><Link href="#">Esportes</Link></li>
-                            <li><Link href="#">Eventos</Link></li>
-                            <li><Link href="#">Geral</Link></li>
-                        </ul>
+                        <Menu menu={MENU} classLi="" classMenu='list-unstyled m-0 menu menu-offcanvas'/>
                     </div>
                 </div>
             </div>

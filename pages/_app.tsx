@@ -5,12 +5,19 @@ import "../styles/globals.css";
 
 import { useEffect } from "react";
 
+import NextNProgress from 'nextjs-progressbar';
+
 function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
+  }, []); 
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <NextNProgress color='#ffbf10' stopDelayMs={100} />
+      <Component {...pageProps} />;
+    </>
+  );
 }
 export default MyApp

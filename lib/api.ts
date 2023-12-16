@@ -15,7 +15,6 @@ async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
     query,
     variables,
   });
-  
   return result?.data ? result?.data?.data : null
 }
 
@@ -117,7 +116,7 @@ export async function getAllPosts(first, notIn = []) {
               node {
                 sourceUrl
                 mediaDetails {
-                  sizes(include: FEATURED_4) {
+                  sizes(include: [FEATURED_3, FEATURED_4]) {
                     name
                     sourceUrl
                   }
