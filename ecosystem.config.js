@@ -1,7 +1,7 @@
 module.exports = {
     apps : [
         {
-            name: "portal",
+            name: "portal343",
             mode: "cluster",
             instances: 4,
             script: 'node_modules/next/dist/bin/next',
