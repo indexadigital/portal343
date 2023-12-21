@@ -281,6 +281,8 @@
   
   .featured {
     width: 100%;
+    height: auto;
+    position: relative;
     overflow: hidden;
     border-radius: 10px;
     display: block;

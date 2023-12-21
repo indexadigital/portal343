@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { subtitle, permalink, imageFeatured } from "../lib/utils";
+import Link from "next/link"
+import Image from 'next/image'
+import { subtitle, permalink, imageFeatured } from "../lib/utils"
 
 export default function Card( { post, classImg = 'featured-1', classTitle = '' }) {
 
@@ -7,7 +8,15 @@ export default function Card( { post, classImg = 'featured-1', classTitle = '' }
 
         <div className="news">
             <Link className={ 'featured ' + classImg } href={ permalink(post) } title={ post.title }>
-                <img src={imageFeatured(post, classImg)} alt={ post.title }  />
+                <Image 
+                    src={imageFeatured(post, classImg)} 
+                    alt={ post.title } 
+                    loading="lazy"
+                    fill
+                    style={{
+                        objectFit: 'cover'
+                    }}
+                />
             </Link>
             <h3 className={ 'featured-1-title ' + classTitle }>
                 <Link href={ permalink(post) } title={ post.title }>{ post.title }</Link>

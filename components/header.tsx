@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Menu from './menu'
 import { CMS_LOGO, CMS_TITLE, MENU } from '../lib/constants'
+import Image from 'next/image'
 export default function Header() {
   return (
     <header>
@@ -17,11 +18,14 @@ export default function Header() {
                             </g>
                         </svg></Link>
                 </div>
-                <div className="block d-flex justify-content-center"><Link className="navbar-brand d-flex align-items-center m-0"
-                        href="/"><img src={`/assets/img/${CMS_LOGO}`} alt={CMS_TITLE} width="105" /></Link></div>
+                <div className="block d-flex justify-content-center">
+                    <Link className="navbar-brand d-flex align-items-center m-0" href="/">
+                        <Image src={`/assets/img/${CMS_LOGO}`} alt={CMS_TITLE} width={105} height={50} />
+                    </Link>
+                </div>
                 <div className="block d-none d-lg-flex justify-content-end">
                     <form action="/" method="get" className="search-form">
-                        <label htmlFor="q" className="d-none">
+                        <label htmlFor="s" className="d-none">
                             Busca
                         </label>
                         <input name="s" id="s" type="text" placeholder="Buscar..." />
@@ -65,9 +69,11 @@ export default function Header() {
                     </form>
                 </div>
                 <div className="offcanvas offcanvas-start" id="offcanvasMenu">
-                    <div className="offcanvas-header"><img className="pt-4" src={`/assets/img/${CMS_LOGO}`} alt={CMS_TITLE}
-                            width="100" /><button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button></div>
+                    <div className="offcanvas-header">                        
+                        <Image src={`/assets/img/${CMS_LOGO}`} alt={CMS_TITLE} width={100} height={48} />                        
+                        <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                    </div>
                     <div className="offcanvas-body">
                         <Menu menu={MENU} classLi="" classMenu='list-unstyled m-0 menu menu-offcanvas'/>
                     </div>

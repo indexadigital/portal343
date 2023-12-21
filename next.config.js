@@ -29,6 +29,9 @@ const securityHeaders = [
 module.exports = {
   output: 'standalone',
   images: {
+    formats: ['image/webp', 'image/avif'],
+    dangerouslyAllowSVG: true,
+    minimumCacheTTL: 3600,
     remotePatterns: [
       {
         protocol: "https",

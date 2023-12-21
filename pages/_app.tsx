@@ -7,6 +7,9 @@ import { useEffect } from "react";
 
 import NextNProgress from 'nextjs-progressbar';
 
+import SEO from '../next-seo.config';
+import { DefaultSeo } from 'next-seo';
+
 function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
@@ -16,7 +19,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextNProgress color='#ffbf10' stopDelayMs={100} />
-      <Component {...pageProps} />;
+      <DefaultSeo {...SEO} />
+      <Component {...pageProps} />
     </>
   );
 }

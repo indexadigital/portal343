@@ -21,8 +21,15 @@ export function imageFeatured( post: any, size: string) {
     return src ? imageSrcToWeb(src) : ''
 }
 export function imageSrcToWeb(imageSrc: string): string {
+    
+    imageSrc = imageSrcToCDN(imageSrc)
+
     if (!imageSrc.toLowerCase().endsWith('.webp')) {
         return `${imageSrc}.webp`;
     }
     return imageSrc;
+}
+
+export function imageSrcToCDN(imageSrc: string): string { 
+    return imageSrc.replace('admin.', 'cdn.')
 }

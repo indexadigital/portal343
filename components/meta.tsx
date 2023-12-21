@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import { CMS_NAME, CMS_TITLE, CMS_DESC, HOME_OG_IMAGE_URL } from '../lib/constants'
+import { CMS_DESC, CMS_URL, HOME_OG_IMAGE_URL } from '../lib/constants'
 
 export default function Meta() {
   return (
     <Head>
+      <meta name="geo.country" content="BR" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -32,6 +33,18 @@ export default function Meta() {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+
+      <link rel="preconnect" href="https://ajax.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link rel="preconnect" href="https://www.google-analytics.com" />
+      <link rel="preconnect" href="https://www.googletagmanager.com" />	
+      <link rel="preconnect" href="https://www.google.com" />
+      <link rel="preconnect" href="https://pagead2.googlesyndication.com" />	
+      
+
+      <link rel="canonical" href={CMS_URL} />
+
       <meta
         name="description"
         content={CMS_DESC}
