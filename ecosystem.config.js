@@ -6,7 +6,7 @@ module.exports = {
             args: 'start',
             mode: "cluster",
             instances: 8,
-            max_memory_restart: '1G',            
+            max_memory_restart: '8G',            
             watch: true,
             ignore_watch: ["node_modules"],
             autorestart: true,

@@ -1,0 +1,13 @@
+#/bin/sh
+
+cd /www/portal343/frontend
+
+git pull origin master
+
+npm i
+
+chown -R www-data:www-data /www/portal343/frontend*
+
+npm run deploy
+
+exit
