@@ -23,8 +23,8 @@ export default function Index({ featured, postsPolitica, postsGeral }) {
         posts={featured?.listaDeDestaques}
       />
       <Banner content={`<img src="/assets/img/banner2.png" width="976" />`} />
-      <SectionNews posts={postsPolitica} title="Política" slug="politica" />
       <SectionNews posts={postsGeral} title="Geral" slug="geral" />
+      <SectionNews posts={postsPolitica} title="Política" slug="politica" />
     </Layout>
   )
 }
