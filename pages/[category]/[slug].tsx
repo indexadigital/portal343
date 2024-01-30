@@ -7,11 +7,13 @@ import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
 
 import { getAllPosts, getPost } from '../../lib/api'
-import { CMS_NAME } from '../../lib/constants'
+import { CMS_NAME, CMS_URL } from '../../lib/constants'
 import Banner from '../../components/banner'
 import Link from 'next/link'
 import CardList from '../../components/card-list'
 import Card from '../../components/card'
+import { NextSeo } from 'next-seo'
+import { imageFeaturedSource, subtitle, permalink } from '../../lib/utils'
 
 export default function CategorySlug({ post, posts, ultimas }) {
   const router = useRouter()
@@ -20,13 +22,23 @@ export default function CategorySlug({ post, posts, ultimas }) {
     return <ErrorPage statusCode={404} />
   }
 
+  const canonical = CMS_URL + permalink(post)
+
   return (
     <Layout>
-        <Head>
-            <title>
-                { `${post?.title} | ${CMS_NAME}` }
-            </title>
-        </Head>
+        <NextSeo
+            title={ `${post?.title} | ${CMS_NAME}` }
+            description={ subtitle(post) }
+            canonical={canonical}
+            openGraph={{
+              url: canonical,
+              title: post?.title,
+              description: subtitle(post),
+              images: [
+                { url: imageFeaturedSource(post) },
+              ]
+            }}
+        />
         <Banner content={`<img src="/assets/img/banner_lumie.png" />`} link="https://www.instagram.com/lumieassessoria/" />
         <section>
           <div className="container">

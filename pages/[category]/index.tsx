@@ -2,29 +2,31 @@ import { GetServerSideProps } from "next"
 import Layout from "../../components/layout"
 import Head from 'next/head'
 import Banner from "../../components/banner"
-import { CMS_NAME } from "../../lib/constants"
+import { CMS_NAME, CMS_URL } from "../../lib/constants"
 import { getAllPosts, getCategory, getPostsByCategory } from "../../lib/api"
 import Link from "next/link"
-import Card from "../../components/card"
-import CardSkeleton from "../../components/card-skeleton"
-import React, { useEffect, useState } from "react"
+import React from "react"
 import PostCardList from "../../components/post-card-list"
+import { NextSeo } from "next-seo"
 
 export default function Index ( { posts, category } ) {
 
-    const [skeleton, setSkeleton] = useState(true);
-
-    useEffect( () => {
-        setSkeleton(false);
-    }, []);
+    const canonical = CMS_URL + '/' + category?.slug
+    const title = `${category?.name} | ${CMS_NAME}`
+    const description = `Últimas notícias sobre ${category?.name} | ${CMS_NAME}` 
 
     return (
         <Layout>
-            <Head>
-                <title>
-                    { `${category?.name} | ${CMS_NAME}` }
-                </title>
-            </Head>
+            <NextSeo
+                title={ title }
+                description={ description }
+                canonical={canonical}
+                openGraph={{
+                    url: canonical,
+                    title: title,
+                    description: description
+                }}
+            />
             <Banner content={`<img src="/assets/img/banner_lumie.png" />`} link="https://www.instagram.com/lumieassessoria/" />
             <section>
                 <div className="container">

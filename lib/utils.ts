@@ -20,6 +20,10 @@ export function imageFeatured( post: any, size: string) {
     )
     return src ? imageSrcToWeb(src) : ''
 }
+export function imageFeaturedSource( post: any ) {
+    const src = post?.featuredImage?.node?.sourceUrl
+    return src ? imageSrcToWeb(src) : ''
+}
 export function imageSrcToWeb(imageSrc: string): string {
     
     imageSrc = imageSrcToCDN(imageSrc)

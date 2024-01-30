@@ -9,8 +9,6 @@ import { CMS_TITLE } from '../lib/constants'
 import Banner from '../components/banner';
 import SectionNews from '../components/section-news';
 
-
-
 export default function Index({ featured, postsPolitica, postsGeral }) {
 
   return (

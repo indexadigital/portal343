@@ -40,16 +40,8 @@ export default function Meta() {
       <link rel="preconnect" href="https://www.google-analytics.com" />
       <link rel="preconnect" href="https://www.googletagmanager.com" />	
       <link rel="preconnect" href="https://www.google.com" />
-      <link rel="preconnect" href="https://pagead2.googlesyndication.com" />	
+      <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
       
-
-      <link rel="canonical" href={CMS_URL} />
-
-      <meta
-        name="description"
-        content={CMS_DESC}
-      />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
     </Head>
   )
 }

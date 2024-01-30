@@ -25,7 +25,9 @@
   header {
     padding-top: 92px;
   }
-  
+  footer.bg-dark {
+    background-color: #003577 !important;
+  }
   .navbar-dark {
     position: fixed;
     top: 0!important;
