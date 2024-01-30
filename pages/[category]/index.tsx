@@ -25,7 +25,7 @@ export default function Index ( { posts, category } ) {
                     { `${category?.name} | ${CMS_NAME}` }
                 </title>
             </Head>
-            <Banner content={`<img src="/assets/img/banner_teste.gif" />`} />
+            <Banner content={`<img src="/assets/img/banner_lumie.png" />`} link="https://www.instagram.com/lumieassessoria/" />
             <section>
                 <div className="container">
                     <section className="pb-2 sections">

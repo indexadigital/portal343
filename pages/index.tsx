@@ -18,11 +18,11 @@ export default function Index({ featured, postsPolitica, postsGeral }) {
       <Head>
         <title>{`${CMS_TITLE}`}</title>
       </Head>
-      <Banner content={`<img src="/assets/img/banner_teste.gif" />`} />
+      <Banner content={`<img src="/assets/img/banner_lumie.png" />`} link="https://www.instagram.com/lumieassessoria/" />
       <Featured 
         posts={featured?.listaDeDestaques}
       />
-      <Banner content={`<img src="/assets/img/banner2.png" width="976" />`} />
+      <Banner content={`<img src="/assets/img/banner_indexa.png" width="976" />`} link="https://indexa.digital"/>
       <SectionNews posts={postsGeral} title="Geral" slug="geral" />
       <SectionNews posts={postsPolitica} title="Política" slug="politica" />
     </Layout>
