@@ -100,7 +100,7 @@ export default function Header() {
                                         </i>
                                     </div>
                                 </Link></li>
-                            <li><Link href="#">
+                            <li><Link href="https://www.instagram.com/portal_343/" target='_blank' title='Instagram'>
                                     <div>
                                         <i>
                                             <svg width="32" height="32" viewBox="0 0 800 800" fill="none"

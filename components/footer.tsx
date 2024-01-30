@@ -47,7 +47,7 @@ export default function Footer() {
             </div>
             <hr />
             <div className="d-flex justify-content-between align-items-center pt-3">
-                <p className="mb-0">Copyright © 2023&nbsp;<a href="#">Portal343.com</a></p>
+                <p className="mb-0">Copyright © 2024&nbsp;<a href="#">Portal343.com</a></p>
                 <ul className="list-inline mb-0">
                     <li className="list-inline-item"><a href="#">WhatsApp 86988830013</a></li>
                     <li className="list-inline-item"><a href="#">redacao@portal343.com</a></li>
