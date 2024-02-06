@@ -13,6 +13,7 @@ import { DefaultSeo } from 'next-seo';
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Analytics from '../components/anatytics';
 
+
 export default function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
