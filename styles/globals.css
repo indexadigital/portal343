@@ -26,7 +26,8 @@
     padding-top: 92px;
   }
   footer.bg-dark {
-    background-color: #003577 !important;
+        background-color: #003577 !important;
+        border-top: 8px solid #ffbf10;
   }
   .navbar-dark {
     position: fixed;
@@ -424,8 +425,8 @@
     padding-top: 0;
   }
   
-  article img {
-    width: 100%;
+  article img,  article figure{
+    width: 100% !important;
     height: auto;
   }
   

@@ -72,16 +72,13 @@ export default function CategorySlug({ post, posts, ultimas }) {
                     </article>
                 </div>
                 <div className="col col-12 col-lg-4 px-5">
-                    <div className="mb-3 mt-0">
-                      <Banner content={`<img src="/assets/img/banner_girassol.gif" />`} />
-                    </div>
                     <div className="mb-3">
                       <Banner content={`<img src="/assets/img/banner4.png" width="300" />`} />
                     </div>
                     <div className="sections px-3 pt-4">
                       <h2 className="featured-1-title featured-2-title blue"><Link href="/noticias" title="Últimas">ÚLTIMAS</Link></h2>
                       { ultimas?.edges?.map((post: any, index: number) => (
-                        <div className="mb-3">
+                        <div key={index} className="mb-3">
                           <Card post={post?.node} classImg="featured-4" classTitle='featured-3-title' />
                         </div>
                       ))}                                          

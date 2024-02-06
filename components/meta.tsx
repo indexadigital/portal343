@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { CMS_DESC, CMS_URL, HOME_OG_IMAGE_URL } from '../lib/constants'
 
 export default function Meta() {
   return (
@@ -41,7 +40,7 @@ export default function Meta() {
       <link rel="preconnect" href="https://www.googletagmanager.com" />	
       <link rel="preconnect" href="https://www.google.com" />
       <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-      
+
     </Head>
   )
 }
