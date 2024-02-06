@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-export default function Analytics( { GTAG = "G-NVLJWGW01D" } ){
+export default function Analytic( { GTAG = "G-NVLJWGW01D" } ){
     return (
         <>
             <Script async strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG}`} />

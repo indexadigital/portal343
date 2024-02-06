@@ -11,7 +11,7 @@ import SEO from '../next-seo.config';
 import { DefaultSeo } from 'next-seo';
 
 import { GoogleAnalytics } from '@next/third-parties/google'
-import Analytics from '../components/anatytics';
+import Analytic from '../components/anatytic';
 
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -25,7 +25,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <NextNProgress color='#ffbf10' stopDelayMs={100} />
       <DefaultSeo {...SEO} />
       <GoogleAnalytics gaId="G-NVLJWGW01D" />
-      <Analytics GTAG="G-NVLJWGW01D" />
+      <Analytic GTAG="G-NVLJWGW01D" />
       <Component {...pageProps} />      
     </>
   );
