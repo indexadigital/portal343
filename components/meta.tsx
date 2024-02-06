@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Analytic from './anatytic'
 
 export default function Meta() {
   return (
@@ -40,6 +41,8 @@ export default function Meta() {
       <link rel="preconnect" href="https://www.googletagmanager.com" />	
       <link rel="preconnect" href="https://www.google.com" />
       <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+
+      <Analytic GTAG="G-NVLJWGW01D" />
 
     </Head>
   )

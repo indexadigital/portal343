@@ -10,10 +10,6 @@ import NextNProgress from 'nextjs-progressbar';
 import SEO from '../next-seo.config';
 import { DefaultSeo } from 'next-seo';
 
-import { GoogleAnalytics } from '@next/third-parties/google'
-import Analytic from '../components/anatytic';
-
-
 export default function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
@@ -23,10 +19,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextNProgress color='#ffbf10' stopDelayMs={100} />
-      <DefaultSeo {...SEO} />
-      <GoogleAnalytics gaId="G-NVLJWGW01D" />
-      <Analytic GTAG="G-NVLJWGW01D" />
-      <Component {...pageProps} />      
+      <DefaultSeo {...SEO} />      
+      <Component {...pageProps} />
     </>
   );
 }
