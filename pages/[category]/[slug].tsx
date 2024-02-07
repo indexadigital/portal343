@@ -39,7 +39,7 @@ export default function CategorySlug({ post, posts, ultimas }) {
               ]
             }}
         />
-        <Banner content={`<img src="/assets/img/banner_lumie.png" />`} link="https://www.instagram.com/lumieassessoria/" />
+        <Banner content={`<img src="/assets/img/banner_lumie2.png" />`} link="https://www.instagram.com/lumieassessoria/" />
         <section>
           <div className="container">
               

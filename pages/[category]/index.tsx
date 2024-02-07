@@ -27,7 +27,7 @@ export default function Index ( { posts, category } ) {
                     description: description
                 }}
             />
-            <Banner content={`<img src="/assets/img/banner_lumie.png" />`} link="https://www.instagram.com/lumieassessoria/" />
+            <Banner content={`<img src="/assets/img/banner_lumie2.png" />`} link="https://www.instagram.com/lumieassessoria/" />
             <section>
                 <div className="container">
                     <section className="pb-2 sections">

@@ -16,7 +16,7 @@ export default function Index({ featured, postsPolitica, postsGeral }) {
       <Head>
         <title>{`${CMS_TITLE}`}</title>
       </Head>
-      <Banner content={`<img src="/assets/img/banner_lumie.png" />`} link="https://www.instagram.com/lumieassessoria/" />
+      <Banner content={`<img src="/assets/img/banner_lumie2.png" />`} link="https://www.instagram.com/lumieassessoria/" />
       <Featured 
         posts={featured?.listaDeDestaques}
       />
