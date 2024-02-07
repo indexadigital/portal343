@@ -11,6 +11,7 @@ export function image(post : any) {
     return post?.featuredImage?.node?.sourceUrl ? post?.featuredImage?.node?.sourceUrl : ''
 }
 export function imageFeatured( post: any, size: string) {
+
     let src = ''
     post?.featuredImage?.node?.mediaDetails?.sizes.map(
         (sizeItem : any) => {
@@ -18,7 +19,7 @@ export function imageFeatured( post: any, size: string) {
                 src = sizeItem.sourceUrl
         }
     )
-    return src ? imageSrcToWeb(src) : ''
+    return src ? imageSrcToWeb(src) : (post.featuredImage?.node?.sourceUrl ? post.featuredImage?.node?.sourceUrl : '')
 }
 export function imageFeaturedSource( post: any ) {
     const src = post?.featuredImage?.node?.sourceUrl
