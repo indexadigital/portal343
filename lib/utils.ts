@@ -12,13 +12,17 @@ export function image(post : any) {
 }
 export function imageFeatured( post: any, size: string) {
 
+    const image = post?.featuredImage?.node?.mediaDetails;
+
     let src = ''
-    post?.featuredImage?.node?.mediaDetails?.sizes.map(
+
+    image?.sizes && image?.sizes.map(
         (sizeItem : any) => {
             if (sizeItem.name === size)
                 src = sizeItem.sourceUrl
         }
     )
+    
     return src ? imageSrcToWeb(src) : (post.featuredImage?.node?.sourceUrl ? post.featuredImage?.node?.sourceUrl : '')
 }
 export function imageFeaturedSource( post: any ) {
