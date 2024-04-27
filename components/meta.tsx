@@ -5,6 +5,7 @@ export default function Meta() {
   return (
     <Head>
       <meta name="geo.country" content="BR" />
+      <meta name="google-adsense-account" content="ca-pub-4827177938946826" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
