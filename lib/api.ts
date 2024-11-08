@@ -9,10 +9,7 @@ async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
     headers: {
       "Content-Type": "application/json",
       Accept: "*/*",
-    },
-    httpsAgent: new https.Agent({  
-      rejectUnauthorized: false // APENAS PARA DESENVOLVIMENTO
-    })
+    }
   };
   const api = axios.create(options);
   const result = await api.post('/', {
