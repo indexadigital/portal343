@@ -53,6 +53,11 @@ module.exports = {
         source: '/api/:path*',
         destination: 'https://portal343.com/graphql',
       },
+      {
+        source: '/public/ads.txt',
+        destination: '/ads.txt',
+        permanent: true,
+      }
     ]
   }
 }
