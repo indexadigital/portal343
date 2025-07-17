@@ -51,7 +51,7 @@ module.exports = {
     return [
       {
         source: '/api/:path*',
-        destination: 'https://portal343.com/graphql',
+        destination: 'https://admin.portal343.com/graphql/:path*',
       }
     ]
   }
