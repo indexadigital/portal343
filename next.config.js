@@ -28,6 +28,11 @@ const securityHeaders = [
 /** @type {import('next').NextConfig} */
 module.exports = {
   output: 'standalone',
+  // Configurações SSL
+  experimental: {
+    // Configurações para resolver problemas SSL
+    serverComponentsExternalPackages: ['axios'],
+  },
   images: {
     formats: ['image/webp', 'image/avif'],
     dangerouslyAllowSVG: true,
@@ -35,6 +40,10 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
         hostname: "**",
       },
     ],

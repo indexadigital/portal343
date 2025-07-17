@@ -21,8 +21,8 @@ module.exports = {
                 NEXTAUTH_SECRET: "",
                 NODE_ENV: "production",
                 HOSTNAME: "0.0.0.0",
-                // Adicione para resolver SSL temporariamente
-                NODE_TLS_REJECT_UNAUTHORIZED: "0"
+                NODE_TLS_REJECT_UNAUTHORIZED: "0",
+                SSL_VERIFY: "false"
             }
         }
     ]
