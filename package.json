@@ -7,8 +7,7 @@
         "dev": "next",
         "build": "next build",
         "start": "next start",
-        "deploy": "npm run build && pm2 restart portal",
-        "deploy:fresh": "npm run build && pm2 delete portal; pm2 start ecosystem.config.js --env production",
+        "deploy": "next build && pm2 startOrRestart ecosystem.config.js --watch --env production",
         "lint": "next lint"
     },
     "dependencies": {
