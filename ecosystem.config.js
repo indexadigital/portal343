@@ -2,12 +2,13 @@ module.exports = {
     apps : [
         {
             name: "portal",
-            script: 'node_modules/next/dist/bin/next',
-            args: 'start',
+            script: '.next/standalone/server.js',
+            //script: 'node_modules/next/dist/bin/next',
+            //args: 'start',
             mode: "cluster",
-            instances: 8,
+            instances: 4,
             max_memory_restart: '8G',            
-            watch: true,
+            watch: false,
             ignore_watch: ["node_modules"],
             autorestart: true,
             env_development: {
@@ -19,6 +20,9 @@ module.exports = {
                 PORT: 3000,
                 NEXTAUTH_SECRET: "",
                 NODE_ENV: "production",
+                HOSTNAME: "0.0.0.0",
+                // Adicione para resolver SSL temporariamente
+                NODE_TLS_REJECT_UNAUTHORIZED: "0"
             }
         }
     ]
