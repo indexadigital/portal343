@@ -1,22 +1,22 @@
-import axios from 'axios'
-import https from 'https'
 const API_URL = process.env.WORDPRESS_API_URL
 
-async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
-  const options = {
-    baseURL: API_URL,
-    timeout: 60000, // 1 minuto
+async function fetchAPI(
+  query = '',
+  { variables }: Record<string, any> = {},
+  revalidate: number | false = 60
+) {
+  const res = await fetch(API_URL!, {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "*/*",
-    }
-  };
-  const api = axios.create(options);
-  const result = await api.post('/', {
-    query,
-    variables,
-  });
-  return result?.data ? result?.data?.data : null
+      'Content-Type': 'application/json',
+      Accept: '*/*',
+    },
+    body: JSON.stringify({ query, variables }),
+    next: { revalidate: revalidate !== false ? revalidate : 0 },
+  } as RequestInit)
+
+  const json = await res.json()
+  return json?.data ?? null
 }
 
 export async function getAllPostsWithSlug() {
@@ -34,7 +34,8 @@ export async function getAllPostsWithSlug() {
   `)
   return data?.posts
 }
-export async function getPost(slug : any) {
+
+export async function getPost(slug: any) {
   const data = await fetchAPI(
     `
     fragment AuthorFields on User {
@@ -93,10 +94,10 @@ export async function getPost(slug : any) {
   )
   return data?.postBy
 }
-export async function getAllPosts(first, notIn = []) {
 
+export async function getAllPosts(first: number, notIn: number[] = []) {
   const notInJoined = notIn.join(',')
-  
+
   const data = await fetchAPI(
     `
     query GetPosts {
@@ -140,8 +141,8 @@ export async function getAllPosts(first, notIn = []) {
 
   return data?.posts
 }
-export async function getPostsByCategory( categoryName = "", first = 3, notIn = []) {
 
+export async function getPostsByCategory(categoryName = '', first = 3, notIn: number[] = []) {
   const notInJoined = notIn.join(',')
 
   const data = await fetchAPI(
@@ -187,14 +188,14 @@ export async function getPostsByCategory( categoryName = "", first = 3, notIn = 
 
   return data?.posts
 }
-export async function getDestaques() {
 
+export async function getDestaques() {
   let query = `query getDestaques {
                 destaques {
                   listaDeDestaques {`
-                   
-  for(let i = 1; i < 5; i++){
-    query += `    
+
+  for (let i = 1; i < 5; i++) {
+    query += `
           destaque${i} {
             ... on Post {
               databaseId
@@ -223,16 +224,17 @@ export async function getDestaques() {
                 }
               }
             }
-          },          
+          },
         `
   }
   query += `}}}`
   const data = await fetchAPI(query)
   return data?.destaques
 }
-export async function getCategory(slug : any) {
+
+export async function getCategory(slug: any) {
   const data = await fetchAPI(
-    `   
+    `
     query getCategory {
       category(id: "${slug}", idType: SLUG) {
         name
@@ -242,12 +244,12 @@ export async function getCategory(slug : any) {
     }
     `
   )
-  return data?.category;
+  return data?.category
 }
 
-export async function getPage(slug : any) {
+export async function getPage(slug: any) {
   const data = await fetchAPI(
-    `   
+    `
     query GetPage($slug: String) {
       pageBy(uri: $slug) {
         title
@@ -266,5 +268,5 @@ export async function getPage(slug : any) {
       variables: { slug },
     }
   )
-  return data?.pageBy;
+  return data?.pageBy
 }
