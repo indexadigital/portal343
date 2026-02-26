@@ -6,7 +6,7 @@ export default function Featured( { posts } ) {
 
     return ( posts ?
         <>
-            <section className="pb-5">
+            <section className="pb-5 google-auto-ads-ignore">
                 { posts?.destaque1 ? (
                     <div className="container text-center featured-banner">
                         <Link className="category" href={ '/' + category(posts?.destaque1).slug }>{ category(posts?.destaque1).name }</Link>
@@ -17,7 +17,7 @@ export default function Featured( { posts } ) {
                     </div>
                 ) : '' }                
             </section>
-            <section>
+            <section className="google-auto-ads-ignore">
                 <div className="container">
                     <div className="row">
                         <div className="col col-12 col-lg-6">
