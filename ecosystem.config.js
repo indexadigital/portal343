@@ -5,9 +5,9 @@ module.exports = {
             script: 'node_modules/next/dist/bin/next',
             args: 'start',
             mode: "cluster",
-            instances: 8,
+            instances: 4,
             max_memory_restart: '8G',            
-            watch: false,
+            watch: true,
             ignore_watch: ["node_modules"],
             autorestart: true,
             env_development: {
