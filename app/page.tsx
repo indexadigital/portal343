@@ -22,7 +22,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <Banner content={`<img src="/assets/img/banner_lumie2.png" />`} link="https://www.instagram.com/lumieassessoria/" />
+      <Banner content={`<img src="/assets/img/banner_book_cores.jpg" />`} link="https://www.instagram.com/book_cores" />
       <Featured posts={featured?.listaDeDestaques} />
       <Banner content={`<img src="/assets/img/banner_indexa.png" width="976" />`} link="https://indexa.digital" />
       <SectionNews posts={postsGeral} title="Geral" slug="geral" />

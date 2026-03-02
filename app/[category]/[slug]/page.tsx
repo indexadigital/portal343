@@ -53,7 +53,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <>
-      <Banner content={`<img src="/assets/img/banner_lumie2.png" />`} link="https://www.instagram.com/lumieassessoria/" />
+      <Banner content={`<img src="/assets/img/banner_book_cores.jpg" />`} link="https://www.instagram.com/book_cores" />
       <section>
         <div className="container">
           <PostHeader post={post} />
